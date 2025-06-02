@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>기본 매개 변수(Default parameter)</h2>
+    <script>
+        var func1 = function(a, b, c) {
+            console.log(a, b, c);
+        }; 
+        /* a를 제외한 b, c는 값을 할당받지 못해 undefined가 출력된다. 
+        기본값을 설정하기 위해 파라미터가 undefined 인지 일일히 체크한 후 값을 할당해야 한다.*/
+        
+        //위 함수를 다음과 같이 보완할 수 있다. 
+        function func2(a, b, c){
+            if(b==undefined) b = 'morning';
+            if(c==undefined) c = 'sir';
+            
+            console.log(a, b, c);
+        }
+
+        /*
+        디폴트 파라미터(Default parameter) : ES6에서는 파라미터에 기본값을 설정할 수 있다. 
+            만약 b와 c에 인수를 전달하지 않는다면 디폴트로 설정된 b, c가 설정되어 출력된다. 
+            인수가 전달되면 기본값은 무시된다. 
+        */
+        var func3 = (a, b=2, c=3) => {
+            console.log(a, b, c);
+        }; 
+    </script>
+    <button type="button" onclick="func1('1');">버튼1</button>
+    <button type="button" onclick="func2('good');">버튼2</button>
+    <button type="button" onclick="func3(1);">버튼3-1</button>
+    <button type="button" onclick="func3('나는', 'java', '개발자');">버튼3-1</button>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<script>
+var promise1 = function(b_name){            
+    return new Promise(function(resolve, reject){
+        $.ajax({
+            url : "http://nakja.co.kr/kosmoAPI/json/board_list_json.php",
+            type : "get",
+            data : {
+                tname : b_name
+            },
+            dataType : "json",
+            success : function(rData){	
+                //요청 성공시 resolve()함수 호출				
+                resolve(rData);
+            },
+            error : function(eDate){		
+                //요청 실패시 reject()함수 호출			
+                reject(eDate.status+":"+eDate.statusText);
+            }
+        });	
+    });
+}
+var myPromise1 = function(b_name){
+    //프로미스 객체 호출
+    promise1(b_name)
+        .then(function(resData){
+            //이행상태인 경우 then()을 통해 콜백데이터 받음
+            console.log("호출1:성공시 then영역실행->", resData);
+        })
+        .catch(function(errData){
+            //실패 상태일때는 catch()에서 에러결과를 받음
+            console.log("호출1:실패시 catch영역실행->", errData);
+        });
+}
+</script>
+<h2>프로미스(Promise)</h2>
+<input type="button" value="포트폴리오" 
+    onclick="myPromise1('nboard_portfolio')">
+<input type="button" value="API" 
+    onclick="myPromise1('nboard_api')">
+<input type="button" value="뉴스" 
+    onclick="myPromise1('nboard_news')">
+<input type="button" value="자바스크립트" 
+    onclick="myPromise1('nboard_javascript')">
+</body>
+</html>

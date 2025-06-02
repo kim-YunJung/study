@@ -1,0 +1,21 @@
+.App {
+  margin: 20px;
+}
+/* <<<<<<< HEAD
+input{
+  border: 1px solid black;
+  margin: 2px; width: 100%;
+}
+input[type=button]{
+  width:60px;
+======= */
+input[type=number]{
+  width: 100px;margin-right: 10px;
+}
+input[type=button]{
+  width: 60px;margin-right: 10px;
+}
+.naviWrap{
+  padding: 5px;
+/* >>>>>>> 9be282118e623f21d834134294208df9fff198fc */
+}

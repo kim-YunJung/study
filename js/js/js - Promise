@@ -1,0 +1,39 @@
+//https://www.notion.so/javascript-45e41856bc7a493ba4111664216787e2?pvs=4
+
+## Promise.all()
+메서드는 순회 가능한 객체에 주어진 모든 프로미스가 이행한 후, 혹은 프로미스가 주어지지 않았을 때 이행하는`[Promise]`를 반환합니다. 주어진 프로미스 중 하나가 거부하는 경우, 첫 번째로 거절한 프로미스의 이유를 사용해 자신도 거부합니다.
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+
+## Promise.race()
+프로미스 객체는 iterable 안에 있는 프로미스 중에 가장 먼저 완료된 것의 결과값으로 그대로 이행하거나 거부합니다.
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise/race
+
+//resolve - 성공 / reject - 실패
+const pr = new Promise((resolve, reject) => {
+	setTimeout(()=>{
+		resolve('OK')
+	}, 3000)
+});
+
+const pr2 = new Promise((resolve, reject) => {
+	setTimeout(()=>{
+		reject(new Error('error...'))
+	}, 3000)
+});
+
+pr.then(
+	function(result){},//성공되었을때 실행
+	function(err){}//실패했을때 실행
+);
+
+pr2.then(
+	function(result){}
+).catch(
+	function(err){}
+).finally(
+	function(){
+		console.log('무조건 실행')
+	}
+)

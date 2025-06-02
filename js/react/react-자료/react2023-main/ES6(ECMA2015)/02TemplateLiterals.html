@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>템플릿 리터럴(Template literal)</h2>
+    <script>
+    /*
+    템플릿 리터럴(Template literal)
+    : ES6에서 도입한 새로운 문자열 표기법이다. 
+    싱글(') 혹은 더블 쿼테이션(")을 사용하는 대신 백틱(`) 문자를 사용한다. 
+    백틱을 사용하면 여러 줄에 걸쳐 문자열을 작성할 수 있다.(Multi-line Strings)
+    또한 공백(white-space)이 작성한 그대로 적용된다. 
+    */
+    let func1 = function(){
+        console.log("es5에서는 2줄에 걸쳐 작성하려면\n"
+            +"플러스 기호를 사용해야 한다. 줄바꿈시 \\n을 사용해야한다.");
+        console.log(`es6의 템플릿 리터럴을 사용하면 
+줄바꿈은 Enter로 할 수 있다.
+        그리고 white space가 그대로 적용된다.`);
+    }
+
+    /*
+    표현식 삽입법(Expression interpolation)
+    : 템플릿 리터럴은 + 연산자를 사용하지 않아도 간단한 방법으로 변수를 삽입할 수 있는 
+    기능을 제공한다. 이를 문자열 인터폴레이션(String Interpolation)이라 한다.
+    */
+    let func2 = function(){
+        let a = 5;
+        let b = 10;
+        console.log("5와 10의 합은 "+ (a + b) +" 입니다.");
+        console.log(`5와 10의 곱은 ${a + b} 입니다`);
+    }
+
+    let func3 = function(){
+        const template = `템플릿 리터럴은 '작은따옴표(single quotes)'과 "큰따옴표(double quotes)"를 혼용할 수 있다.`;
+        console.log(template);
+    }
+    </script>
+    <button type="button" onclick="func1();">버튼1</button>
+    <button type="button" onclick="func2();">버튼2</button>
+    <button type="button" onclick="func3();">버튼3</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  
+        fetch()함수
+            : ajax()함수처럼 비동기 통신을 지원하는 함수이다. 
+            요청에 성공하면 프로미스 객체를 반환한다. 
+    -->
+    <script>
+    let url = "http://nakja.co.kr/kosmoAPI/json/board_list_json.php";
+    fetch(url)
+        .then(function(resData){
+            return resData.json();
+        })
+        .then((data)=>{
+            console.log(data);
+        })
+        .catch(function(errData){
+            console.log(errData);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

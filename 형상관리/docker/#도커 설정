@@ -1,0 +1,14 @@
+#도커 설정
+
+#docker-compose.yml 파일 생성
+touch docker-compose.yml
+
+#https://hub.docker.com/
+
+#https://hub.docker.com/_/mysql
+#... via docker-compose or docker stack deploy 내용을 위 docker-compose.yml에 붙여넣고 상황에 맞게 수정한다.
+
+#Makefile에서 도커 관련 설정을 작성
+
+#터미널에서 아래 명령어 실행하면 도커 파일 실행
+make db-up

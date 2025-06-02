@@ -1,0 +1,8 @@
+soft delete - 정책에 따라 데이터를 보관할 필요가 있기에 사용한다.
+
+
+//삭제시, 데이터 삭제가 아닌 deleteddatetime 시간이 업데이트 된다.
+@SQLDelete(sql = "UPDATE \"테이블명\" SET deleteddatetime = CURRENT_TIMESTAMP WHERE postid = ?")
+// Deprecated in Hibernate 6.3 - 6.3 버전 이전에는 아래의 @Where을 사용했으나, 최근에는 아래의 코드를 사용한다. -> 조회 시, deleteddatetime 이 없는 것만 조회되어 삭제된 내용이 조회되지 않게 한다.
+// @Where(clause = "deletedDateTime IS NULL")
+@SQLRestriction("deleteddatetime IS NULL")

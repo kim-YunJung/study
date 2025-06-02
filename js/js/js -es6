@@ -1,0 +1,70 @@
+/* 변수의 이름과 키의 이름이 동일한 경우 생략이 가능하다. */
+let name = 'text';
+let age = 18;
+
+let person = {
+	name : name,
+	age : age
+}
+
+let person2 = {
+	name, age
+}
+
+console.log(person);//{name : 'text', age : 18}
+console.log(person2);//{name : 'text', age : 18}
+//person과 person2는 동일한 내용을 값을 가진다.
+
+/* --- */
+
+let person = {
+	name : 'text',
+	age : 18
+}
+
+let name = person.name;
+let age = person['age'];
+
+let {name, age} = person
+console.log(name, age)//text 18
+
+let {name} = person
+console.log(name)//text
+
+let array = [1, 2, 3, 4];
+let [a, b] = array;
+let [a, b...rest] = array;
+
+console.log(a, b);//1 2
+console.log(rest);//[3, 4]
+
+/* --- */
+
+let person = {
+	name : 'text',
+	age : 18
+}
+
+let person2 = {...person};
+//객체를 새로운 객체로 복사한다.
+
+let person2 = {...person, name : 'jimin'};
+//객체를 새로 복사하며 값을 변경
+console.log(person2);//{name : "jimin", age : 18}
+
+let person3 = person;
+//같은 데이터를 보고 있다.
+
+let a = [1, 2];
+let b = [...a, 3];
+//내용을 새로 추가한다.
+
+console.log(b);//[1,2,3]
+
+let c = [...a, ...b];
+console.log(c);//[1,2,1,2,3]
+
+
+/* --- */
+
+

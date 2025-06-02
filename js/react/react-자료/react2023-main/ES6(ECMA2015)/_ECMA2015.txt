@@ -1,0 +1,76 @@
+ECMAScript 자바스트립트 버전별 특징
+참조URL : https://velog.io/@zioo/ES6-%EB%AC%B8%EB%B2%95%EC%A0%95%EB%A6%AC
+
+ECMA(European Computer Manufacturers Association)
+: ECMA Script는 자바스크립트 표준단체인 ECMA가 제정하는 자바스크립트 표준이다. 
+
+ES1, ES2, ES3, ES4
+: ES1(1997년 6월) — ES2(1998년 6월) — ES3(1999년 12월) — ES4(Abandoned)
+처음 3판이 해마다 나왔고 4번째 판은 언어에 얽힌 정치적인 차이로 인해 버려졌다.
+
+ES5
+: 이전 버전에서 10년만인 2009년 12월에 발표됐으며 
+이후 버전과 거의 6년 차이가 난다. 현재 우리가 주로 사용하는 버전으로 초기학습의 대부분을 차지한다. 
+
+ES6(ES2015)
+: 아래에서 소개되는 여러가지 새로운 개념들이 대거 등장했다. JS의 가장 큰 변곡점이 되었다.
+-ES6의 주된 특징
+1.Default Parameters(기본 매개변수)
+2.Template Literals(새로운 문자열 표기법)
+3.Multi-line Strings
+4.Destructuring Assignment(구조분해할당)
+5.Enhanced Object Literals(향상된 객체 리터럴)
+6.Arrow Functions(화살표 함수)
+7.Promises(프로미스)
+8.Block-Scoped Constructs Let and Const(let과 const)
+9.Classes(클래스)
+10.Modules(모듈)
+
+ES7(ES2016)
+ES8(ES2017)
+ES9(ES2018)
+: ES7 부터는 큰 변화없이 한 두가지 정도의 추가사항만 있다. 
+
+
+
+##템플릿 리터럴
+참조1
+https://eblee-repo.tistory.com/38
+참조2
+https://poiemaweb.com/es6-template-literals
+
+
+##스프레드 연산자(Spread operator)
+https://paperblock.tistory.com/62
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

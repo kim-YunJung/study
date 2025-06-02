@@ -1,0 +1,13 @@
+### 프로젝트 셋팅
+npm init -y
+npm install mongodb
+
+
+### 몽고디비 메뉴얼
+https://www.mongodb.com/ko-kr/docs/manual/
+https://www.mongodb.com/docs/drivers/node/v4.1/quick-start/
+
+### 몽고디비 쿼리연산자
+https://www.mongodb.com/ko-kr/docs/manual/reference/operator/query/
+
+https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/HkkCE-tSn

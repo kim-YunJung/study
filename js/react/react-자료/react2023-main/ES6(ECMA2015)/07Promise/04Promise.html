@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>콜백 지옥 프로미스로 해결하기</h2>
+    <script>
+    class UserStorage {
+        loginUser(id, password) {
+            return new Promise((resolve, reject)=>{
+                setTimeout(() => {
+                    if (id==='tjoeun' && password==='1234') {
+                        resolve(id);
+                    }
+                    else {
+                        reject(new Error('회원정보가 틀렸습니다.'));
+                    }
+                }, 2000);
+            });
+        }
+        getRoles(user) {
+            return new Promise ((resolve, reject) => {
+                setTimeout(() => {
+                    if (user === 'tjoeun') {
+                        resolve({ name:'tjoeun', role:'admin' });
+                    } 
+                    else {
+                        reject(new Error('권한을 확인할 수 없습니다.'));
+                    }
+                }, 1000);
+            });
+        }
+    }
+
+    const userStorage = new UserStorage();
+    const userid = prompt('id를 입력하세요');
+    const userpw = prompt('password를 입력하세요');
+
+    userStorage 
+        .loginUser(userid, userpw)           // (1)로그인 성공하면
+        .then(userStorage.getRoles)          // (2)를 수행, 성공하면
+        .then(user => alert(                 // (3)을 수행 - 로그인이 잘 됐다는 메세지 출력
+            `${userWithRole.name}님, ${userWithRole.role}권한으로 로그인 성공`))
+        .catch(error => alert('로그인 실패'));// error 대응
+    </script>
+</body>
+</html>

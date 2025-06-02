@@ -1,0 +1,21 @@
+{
+  "name": "todo-be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1",
+    "mongoose-id-autoincrement": "^1.0.4",
+    "mongoose-sequence": "^6.0.1",
+    "nodemon": "^3.1.7"
+  }
+}

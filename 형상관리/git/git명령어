@@ -1,0 +1,19 @@
+#태그명
+git tag 버전-이름
+#git tag v0.1.0-tag1
+
+#태그명 업로드
+git push origin 버전-이름
+#git push origin v0.1.0-tag1
+
+#태그명 삭제
+git push origin :버전-이름
+#git push origin :v0.1.0-tag1
+
+#로컬에서 태그 삭제
+git tag -d 버전-이름
+
+#태그 목록 확인
+git tag
+
+https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K

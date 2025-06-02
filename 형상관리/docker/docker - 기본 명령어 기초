@@ -1,0 +1,33 @@
+https://www.notion.so/bf3e1931cf674e5dbd8383d20080dc15?pvs=4
+
+1. 도커 명령어 정리
+    - **https://hub.docker.com/  도커에 필요한 이미지 다운로드**
+    
+    ### 도커 이미지 다운로드 / 가장 최신 버전을 다운로드 한다.
+    
+    - **docker pull mysql:{version}**
+    - **docker pull mysql:latest**
+    
+    ### 도커 컨테이너 생성 및 실행
+    
+    - **docker run --name mysql-sample-container -e
+    MYSQL_ROOT_PASSWORD=<password> -d -p 3306:3306 mysql:
+    {version}**
+        - **docker run --name mysql-원하는 이름-container -e
+        MYSQL_ROOT_PASSWORD=원하는비밀번호 -d -p 3306:3306 mysql:원하는 버전**
+        
+    
+    ### 실행중인 도커 컨테이너 목록 출력
+    
+    - docker ps
+	docker 실행 중인 목록 출력
+    - docker ps -a
+	docker 모든 목록 출력
+    
+    ### 도커 컨테이너 접속
+    
+    - docker exec -it 도커컨테이너 이름 bash
+    
+    ### MySql 접속
+    
+    - mysql -u root -p

@@ -1,0 +1,24 @@
+#boardTable{
+  border: 1px solid gray; border-collapse: collapse; width: 500px;
+  margin-bottom: 10px;
+}
+#boardTable tr{
+  text-align: center;
+}
+#boardTable th{
+  background-color: rgb(231, 231, 231);
+}
+#boardTable th, td{
+  border: 1px solid gray;
+}
+#boardTable td.subject{
+  text-align: left;
+}
+input{
+  width:100px;
+}
+textarea{
+  width: 350px; height: 80px;
+}
+#btn{height: 100px;}
+#writer{text-align: left; padding-left: 20px;}

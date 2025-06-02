@@ -1,0 +1,14 @@
+https://www.notion.so/INDEX-75cfbfd214eb456cbd04a0dd3fb7e32a?pvs=4
+
+
+SHOW INDEX FROM 테이블명;
+#인덱스 목록 검색
+
+EXPLAIN SELECT * FROM 테이블명 WHERE 조건;
+#EXPLAIN 어떤 인덱스를 사용했는지 알려준다.
+
+SELECT * FROM 테이블명 USE INDEX (사용을 원하는 인덱스명) WHERE 조건;
+#해당 인덱스를 사용해달라고 권장하는 느낌
+
+SELECT * FROM 테이블명 FORCE_INDEX (사용을 원하는 인덱스명) WHERE 조건;
+#해당 인덱스를 사용

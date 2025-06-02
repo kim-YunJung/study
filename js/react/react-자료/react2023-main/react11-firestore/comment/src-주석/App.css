@@ -1,0 +1,6 @@
+*{ margin:5px; }
+table td{ padding:10px; }
+#myForm{ width:400px; }
+#myForm select[name="searchField"]{ width: 50px; }
+#myForm input[type=text]{ width: 150px;}
+#myForm button[type=submit]{ width: 100px; }

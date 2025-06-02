@@ -1,0 +1,4779 @@
+{
+	"info": {
+		"_postman_id": "9160b09b-9296-4640-aaaa-8bac4e7282d1",
+		"name": "Crash API",
+		"description": "CRASH 컨퍼런스의 REST API 명세입니다.\n\n각 기능별로 세부 명세가 작성되어 있습니다.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33250697"
+	},
+	"item": [
+		{
+			"name": "Sign-Up & Login API",
+			"item": [
+				{
+					"name": "/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"jayce\",\n    \"password\": \"1234\",\n    \"name\": \"Dev Jayce\",\n    \"email\": \"jayce@crash.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						},
+						"description": "회원가입 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"jayce\",\n    \"password\": \"1234\",\n    \"name\": \"Dev Jayce\",\n    \"email\": \"jayce@crash.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:09:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": 1,\n    \"username\": \"jayce\",\n    \"name\": \"Dev Jayce\",\n    \"email\": \"jayce@crash.com\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"password\": \"1234\",\n    \"name\": \"Dev Jayce\",\n    \"email\": \"jayce@crash.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:10:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"[username: 비어 있을 수 없습니다]\"\n}"
+						},
+						{
+							"name": "User Already Exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"jayce\",\n    \"password\": \"1234\",\n    \"name\": \"Dev Jayce\",\n    \"email\": \"jayce@crash.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:12:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"CONFLICT\",\n    \"message\": \"User already exists.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/users/authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"jayce\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"authenticate"
+							]
+						},
+						"description": "로그인 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"jayce\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:15:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXljZSIsImlhdCI6MTcxMDM3NTM1MywiZXhwIjoxNzEwMzg2MTUzfQ.NcKrNdeKpL8fi8sj8iFBJjjfXqYlXA0HjxjJaU3DMZM\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"authenticate"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:16:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"[username: 비어 있을 수 없습니다]\"\n}"
+						},
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"wrong_username\",\n    \"password\": \"wrong_password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"authenticate"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:16:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"User with username wrong_username not found.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "사용자 인증 API 명세입니다. 회원가입과 로그인 API로 구성되어 있습니다.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CrashSession API",
+			"item": [
+				{
+					"name": "/crash-sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/crash-sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"crash-sessions"
+							]
+						},
+						"description": "CRASH 세션 목록 조회용 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:53:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"sessionId\": 1,\n        \"title\": \"In a Glass Darkly\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.Rich gifts wax poor when givers prove unkind.Off with his head!See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-04T00:53:21.739263Z\",\n        \"speaker\": {\n            \"speakerId\": 1,\n            \"company\": \"Mraz Group\",\n            \"name\": \"Etha Corkery\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/11.png\"\n        }\n    },\n    {\n        \"sessionId\": 2,\n        \"title\": \"Gone with the Wind\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.The play 's the thing wherein I'll catch the conscience of the king.The world is grown so bad, that wrens make prey where eagles dare not perch.Good Night, Good night! Parting is such sweet sorrow, that I shall say good night till it be morrow.\",\n        \"category\": \"DEV_OPS\",\n        \"dateTime\": \"2024-03-04T00:53:21.748524Z\",\n        \"speaker\": {\n            \"speakerId\": 1,\n            \"company\": \"Mraz Group\",\n            \"name\": \"Etha Corkery\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/11.png\"\n        }\n    },\n    {\n        \"sessionId\": 3,\n        \"title\": \"Vanity Fair\",\n        \"body\": \"Can one desire too much of a good thing?.To be, or not to be: that is the question.A horse! a horse! my kingdom for a horse!.What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"category\": \"BACKEND\",\n        \"dateTime\": \"2024-03-03T00:53:21.750941Z\",\n        \"speaker\": {\n            \"speakerId\": 1,\n            \"company\": \"Mraz Group\",\n            \"name\": \"Etha Corkery\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/11.png\"\n        }\n    },\n    {\n        \"sessionId\": 4,\n        \"title\": \"It's a Battlefield\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.Do you think I am easier to be played on than a pipe?The world is grown so bad, that wrens make prey where eagles dare not perch.What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-04T00:53:21.753158Z\",\n        \"speaker\": {\n            \"speakerId\": 2,\n            \"company\": \"Metz-Tremblay\",\n            \"name\": \"Somer Mayert\",\n            \"description\": \"Not stepping o'er the bounds of modesty.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/45.png\"\n        }\n    },\n    {\n        \"sessionId\": 5,\n        \"title\": \"Rosemary Sutcliff\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.To be, or not to be: that is the question.An honest tale speeds best, being plainly told.See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-03T00:53:21.755195Z\",\n        \"speaker\": {\n            \"speakerId\": 2,\n            \"company\": \"Metz-Tremblay\",\n            \"name\": \"Somer Mayert\",\n            \"description\": \"Not stepping o'er the bounds of modesty.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/45.png\"\n        }\n    },\n    {\n        \"sessionId\": 6,\n        \"title\": \"Brandy of the Damned\",\n        \"body\": \"How bitter a thing it is to look into happiness through another man's eyes!Brevity is the soul of wit.So wise so young, they say, do never live long.Good Night, Good night! Parting is such sweet sorrow, that I shall say good night till it be morrow.\",\n        \"category\": \"BACKEND\",\n        \"dateTime\": \"2024-03-03T00:53:21.757624Z\",\n        \"speaker\": {\n            \"speakerId\": 3,\n            \"company\": \"Torphy-Lindgren\",\n            \"name\": \"Gerry Dicki\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/100.png\"\n        }\n    },\n    {\n        \"sessionId\": 7,\n        \"title\": \"To Say Nothing of the Dog\",\n        \"body\": \"The fool doth think he is wise, but the wise man knows himself to be a fool.That it should come to this!.Now is the winter of our discontent.Not stepping o'er the bounds of modesty.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-03T00:53:21.75979Z\",\n        \"speaker\": {\n            \"speakerId\": 3,\n            \"company\": \"Torphy-Lindgren\",\n            \"name\": \"Gerry Dicki\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/100.png\"\n        }\n    },\n    {\n        \"sessionId\": 8,\n        \"title\": \"The Cricket on the Hearth\",\n        \"body\": \"True is it that we have seen better days.That it should come to this!.The king's name is a tower of strength.Not stepping o'er the bounds of modesty.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-03T00:53:21.762044Z\",\n        \"speaker\": {\n            \"speakerId\": 3,\n            \"company\": \"Torphy-Lindgren\",\n            \"name\": \"Gerry Dicki\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/100.png\"\n        }\n    },\n    {\n        \"sessionId\": 9,\n        \"title\": \"Fair Stood the Wind for France\",\n        \"body\": \"For ever and a day.Brevity is the soul of wit.An honest tale speeds best, being plainly told.Not stepping o'er the bounds of modesty.\",\n        \"category\": \"CLOUD\",\n        \"dateTime\": \"2024-03-04T00:53:21.764552Z\",\n        \"speaker\": {\n            \"speakerId\": 4,\n            \"company\": \"Ziemann, Macejkovic and Friesen\",\n            \"name\": \"Lennie Ryan and Sons\",\n            \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/10.png\"\n        }\n    },\n    {\n        \"sessionId\": 10,\n        \"title\": \"Taming a Sea Horse\",\n        \"body\": \"Can one desire too much of a good thing?.Rich gifts wax poor when givers prove unkind.A horse! a horse! my kingdom for a horse!.Good Night, Good night! Parting is such sweet sorrow, that I shall say good night till it be morrow.\",\n        \"category\": \"DEV_OPS\",\n        \"dateTime\": \"2024-03-03T00:53:21.767075Z\",\n        \"speaker\": {\n            \"speakerId\": 5,\n            \"company\": \"Goldner, Barton and Gibson\",\n            \"name\": \"Antonio Christiansen\",\n            \"description\": \"See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/96.png\"\n        }\n    },\n    {\n        \"sessionId\": 11,\n        \"title\": \"The Millstone\",\n        \"body\": \"True is it that we have seen better days.Doubt that the sun doth move, doubt truth to be a liar, but never doubt I love.A horse! a horse! my kingdom for a horse!.Wisely and slow; they stumble that run fast.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-03T00:53:21.769133Z\",\n        \"speaker\": {\n            \"speakerId\": 6,\n            \"company\": \"Lang Inc\",\n            \"name\": \"Buford Lebsack\",\n            \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/26.png\"\n        }\n    },\n    {\n        \"sessionId\": 12,\n        \"title\": \"His Dark Materials\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.That it should come to this!.The king's name is a tower of strength.What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"category\": \"BIG_DATA\",\n        \"dateTime\": \"2024-03-04T00:53:21.771392Z\",\n        \"speaker\": {\n            \"speakerId\": 6,\n            \"company\": \"Lang Inc\",\n            \"name\": \"Buford Lebsack\",\n            \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/26.png\"\n        }\n    },\n    {\n        \"sessionId\": 13,\n        \"title\": \"The Lathe of Heaven\",\n        \"body\": \"How bitter a thing it is to look into happiness through another man's eyes!That it should come to this!.Conscience is but a word that cowards use, devised at first to keep the strong in awe.O! she doth teach the torches to burn bright.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-03T00:53:21.773954Z\",\n        \"speaker\": {\n            \"speakerId\": 7,\n            \"company\": \"Krajcik Group\",\n            \"name\": \"Frederick Blanda Group\",\n            \"description\": \"For you and I are past our dancing days.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/1.png\"\n        }\n    },\n    {\n        \"sessionId\": 14,\n        \"title\": \"Fear and Trembling\",\n        \"body\": \"How bitter a thing it is to look into happiness through another man's eyes!Rich gifts wax poor when givers prove unkind.Off with his head!It is the east, and Juliet is the sun.\",\n        \"category\": \"DEV_OPS\",\n        \"dateTime\": \"2024-03-04T00:53:21.775975Z\",\n        \"speaker\": {\n            \"speakerId\": 7,\n            \"company\": \"Krajcik Group\",\n            \"name\": \"Frederick Blanda Group\",\n            \"description\": \"For you and I are past our dancing days.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/1.png\"\n        }\n    },\n    {\n        \"sessionId\": 15,\n        \"title\": \"A Passage to India\",\n        \"body\": \"For ever and a day.Do you think I am easier to be played on than a pipe?Now is the winter of our discontent.O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"category\": \"CLOUD\",\n        \"dateTime\": \"2024-03-03T00:53:21.77835Z\",\n        \"speaker\": {\n            \"speakerId\": 8,\n            \"company\": \"Muller-Dickens\",\n            \"name\": \"Mr. Wilma Gerlach\",\n            \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/3.png\"\n        }\n    },\n    {\n        \"sessionId\": 16,\n        \"title\": \"In a Glass Darkly\",\n        \"body\": \"The fool doth think he is wise, but the wise man knows himself to be a fool.That it should come to this!.The king's name is a tower of strength.It is the east, and Juliet is the sun.\",\n        \"category\": \"FRONTEND\",\n        \"dateTime\": \"2024-03-04T00:53:21.780757Z\",\n        \"speaker\": {\n            \"speakerId\": 8,\n            \"company\": \"Muller-Dickens\",\n            \"name\": \"Mr. Wilma Gerlach\",\n            \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/3.png\"\n        }\n    },\n    {\n        \"sessionId\": 17,\n        \"title\": \"The Green Bay Tree\",\n        \"body\": \"How bitter a thing it is to look into happiness through another man's eyes!When sorrows come, they come not single spies, but in battalions.An honest tale speeds best, being plainly told.O! she doth teach the torches to burn bright.\",\n        \"category\": \"FRONTEND\",\n        \"dateTime\": \"2024-03-03T00:53:21.783523Z\",\n        \"speaker\": {\n            \"speakerId\": 9,\n            \"company\": \"Veum Group\",\n            \"name\": \"Jordan Hegmann\",\n            \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/96.png\"\n        }\n    },\n    {\n        \"sessionId\": 18,\n        \"title\": \"The Monkey's Raincoat\",\n        \"body\": \"The fool doth think he is wise, but the wise man knows himself to be a fool.I will speak daggers to her, but use none.Off with his head!O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"category\": \"FRONTEND\",\n        \"dateTime\": \"2024-03-03T00:53:21.785556Z\",\n        \"speaker\": {\n            \"speakerId\": 10,\n            \"company\": \"Abbott, Dietrich and Altenwerth\",\n            \"name\": \"Tracy Deckow\",\n            \"description\": \"Tempt not a desperate man.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/86.png\"\n        }\n    },\n    {\n        \"sessionId\": 19,\n        \"title\": \"The Line of Beauty\",\n        \"body\": \"I like this place and willingly could waste my time in it.There is nothing either good or bad, but thinking makes it so.A horse! a horse! my kingdom for a horse!.O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"category\": \"BIG_DATA\",\n        \"dateTime\": \"2024-03-04T00:53:21.787738Z\",\n        \"speaker\": {\n            \"speakerId\": 10,\n            \"company\": \"Abbott, Dietrich and Altenwerth\",\n            \"name\": \"Tracy Deckow\",\n            \"description\": \"Tempt not a desperate man.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/86.png\"\n        }\n    },\n    {\n        \"sessionId\": 20,\n        \"title\": \"Time To Murder And Create\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.Do you think I am easier to be played on than a pipe?Off with his head!What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"category\": \"FRONTEND\",\n        \"dateTime\": \"2024-03-03T00:53:21.789916Z\",\n        \"speaker\": {\n            \"speakerId\": 10,\n            \"company\": \"Abbott, Dietrich and Altenwerth\",\n            \"name\": \"Tracy Deckow\",\n            \"description\": \"Tempt not a desperate man.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/86.png\"\n        }\n    },\n    {\n        \"sessionId\": 21,\n        \"title\": \"Have His Carcase\",\n        \"body\": \"I like this place and willingly could waste my time in it.When sorrows come, they come not single spies, but in battalions.The king's name is a tower of strength.It is the east, and Juliet is the sun.\",\n        \"category\": \"BIG_DATA\",\n        \"dateTime\": \"2024-03-03T00:53:21.792065Z\",\n        \"speaker\": {\n            \"speakerId\": 10,\n            \"company\": \"Abbott, Dietrich and Altenwerth\",\n            \"name\": \"Tracy Deckow\",\n            \"description\": \"Tempt not a desperate man.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/86.png\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/crash-sessions/{crashSessionId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"crash-sessions",
+								"1"
+							]
+						},
+						"description": "CRASH 세션 단건 조회용 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:53:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sessionId\": 1,\n    \"title\": \"In a Glass Darkly\",\n    \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.Rich gifts wax poor when givers prove unkind.Off with his head!See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n    \"category\": \"AI\",\n    \"dateTime\": \"2024-03-04T00:53:21.739263Z\",\n    \"speaker\": {\n        \"speakerId\": 1,\n        \"company\": \"Mraz Group\",\n        \"name\": \"Etha Corkery\",\n        \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/11.png\"\n    }\n}"
+						},
+						{
+							"name": "CrashSession Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/9999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"9999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 01:59:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"CrashSession with sessionId 9999 not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/crash-sessions/{crashSessionId}/registration-status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/crash-sessions/1/registration-status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"crash-sessions",
+								"1",
+								"registration-status"
+							]
+						},
+						"description": "현재 로그인 된 유저의 CRASH 세션 등록 상태 조회용 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1/registration-status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1",
+										"registration-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 01:59:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sessionId\": 1,\n    \"isRegistered\": false\n}"
+						},
+						{
+							"name": "Success with Registration",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1/registration-status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1",
+										"registration-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:02:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sessionId\": 1,\n    \"isRegistered\": true,\n    \"registrationId\": 1\n}"
+						},
+						{
+							"name": "CrashSession Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/9999/registration-status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"9999",
+										"registration-status"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:03:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"CrashSession with sessionId 9999 not found.\"\n}"
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1/registration-status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1",
+										"registration-status"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:54:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 47815706 milliseconds ago at 2024-03-13T11:37:24.000Z. Current time: 2024-03-14T00:54:19.706Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/crash-sessions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Session Title\",\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speakerId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/crash-sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"crash-sessions"
+							]
+						},
+						"description": "CRASH 세션 생성 API\n\n아래 필드는 모두 필수값입니다.\n\n- title\n- body\n- category\n- dateTime\n- speakerId\n    \n\n관리자 계정으로만 호출할 수 있습니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Session Title\",\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speakerId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:03:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sessionId\": 33,\n    \"title\": \"Session Title\",\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speaker\": {\n        \"speakerId\": 1,\n        \"company\": \"Olson Group\",\n        \"name\": \"Bertram Carter\",\n        \"description\": \"Not stepping o'er the bounds of modesty.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/15.png\"\n    }\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speakerId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:04:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"[title: 비어 있을 수 없습니다]\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Session Title\",\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speakerId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:03:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Session Title\",\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speakerId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:54:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 47824165 milliseconds ago at 2024-03-13T11:37:24.000Z. Current time: 2024-03-14T00:54:28.165Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						},
+						{
+							"name": "/crash-sessions",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"body\": \"Session Body\",\n    \"category\": \"CLOUD\",\n    \"dateTime\": \"2024-03-12T13:53:45.981341Z\",\n    \"speakerId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:16:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/crash-sessions/{crashSessionId}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Session Title\",\n    \"body\": \"Updated Session Body\",\n    \"category\": \"AI\",\n    \"dateTime\": \"2024-03-13T13:53:45.981341Z\",\n    \"speakerId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"crash-sessions",
+								"1"
+							]
+						},
+						"description": "CRASH 세션 수정 API\n\n아래 필드는 모두 선택값입니다. 정상적인 값이 전달된 경우에만 수정됩니다.\n\n- title\n- body\n- category\n- dateTime\n- speakerId\n    \n\n관리자 계정으로만 호출할 수 있습니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Updated Session Title\",\n    \"body\": \"Updated Session Body\",\n    \"category\": \"AI\",\n    \"dateTime\": \"2024-03-13T13:53:45.981341Z\",\n    \"speakerId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:04:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sessionId\": 1,\n    \"title\": \"Updated Session Title\",\n    \"body\": \"Updated Session Body\",\n    \"category\": \"AI\",\n    \"dateTime\": \"2024-03-13T13:53:45.981341Z\",\n    \"speaker\": {\n        \"speakerId\": 2,\n        \"company\": \"Stiedemann, Heller and Huels\",\n        \"name\": \"Zachery Bogan\",\n        \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/35.png\"\n    }\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Updated Session Title\",\n    \"body\": \"Updated Session Body\",\n    \"category\": \"AI\",\n    \"dateTime\": \"2024-03-13T13:53:45.981341Z\",\n    \"speakerId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:04:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Updated Session Title\",\n    \"body\": \"Updated Session Body\",\n    \"category\": \"AI\",\n    \"dateTime\": \"2024-03-13T13:53:45.981341Z\",\n    \"speakerId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:54:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 47832537 milliseconds ago at 2024-03-13T11:37:24.000Z. Current time: 2024-03-14T00:54:36.537Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/crash-sessions/{crashSessionId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"crash-sessions",
+								"1"
+							]
+						},
+						"description": "CRASH 세션 삭제 API\n\n관리자 계정으로만 호출할 수 있습니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:07:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:04:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/crash-sessions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"crash-sessions",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:54:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 47842064 milliseconds ago at 2024-03-13T11:37:24.000Z. Current time: 2024-03-14T00:54:46.064Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "CRASH 컨퍼런스의 세션 API 입니다.\n\n단순 정보 조회에 해당하는 GET API를 제외하고\n\nJWT 기반 인증용 토큰값을 Authorization 헤더에 함께 전달해주셔야 합니다.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXljZSIsImlhdCI6MTcxMDgxMzUxNywiZXhwIjoxNzEwODI0MzE3fQ.wztPDPdYrhPslYppG-ydkUzZhS7xdUG7BvRuD--9dSg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SessionSpeaker API",
+			"item": [
+				{
+					"name": "/session-speakers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/session-speakers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"session-speakers"
+							]
+						},
+						"description": "CRASH 컨퍼런스의 세션 발표자 목록 조회용 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 01:01:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"speakerId\": 1,\n        \"company\": \"Mraz Group\",\n        \"name\": \"Etha Corkery\",\n        \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/11.png\"\n    },\n    {\n        \"speakerId\": 2,\n        \"company\": \"Metz-Tremblay\",\n        \"name\": \"Somer Mayert\",\n        \"description\": \"Not stepping o'er the bounds of modesty.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/45.png\"\n    },\n    {\n        \"speakerId\": 3,\n        \"company\": \"Torphy-Lindgren\",\n        \"name\": \"Gerry Dicki\",\n        \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/100.png\"\n    },\n    {\n        \"speakerId\": 4,\n        \"company\": \"Ziemann, Macejkovic and Friesen\",\n        \"name\": \"Lennie Ryan and Sons\",\n        \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/10.png\"\n    },\n    {\n        \"speakerId\": 5,\n        \"company\": \"Goldner, Barton and Gibson\",\n        \"name\": \"Antonio Christiansen\",\n        \"description\": \"See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/96.png\"\n    },\n    {\n        \"speakerId\": 6,\n        \"company\": \"Lang Inc\",\n        \"name\": \"Buford Lebsack\",\n        \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/26.png\"\n    },\n    {\n        \"speakerId\": 7,\n        \"company\": \"Krajcik Group\",\n        \"name\": \"Frederick Blanda Group\",\n        \"description\": \"For you and I are past our dancing days.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/1.png\"\n    },\n    {\n        \"speakerId\": 8,\n        \"company\": \"Muller-Dickens\",\n        \"name\": \"Mr. Wilma Gerlach\",\n        \"description\": \"What's in a name? That which we call a rose by any other name would smell as sweet.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/3.png\"\n    },\n    {\n        \"speakerId\": 9,\n        \"company\": \"Veum Group\",\n        \"name\": \"Jordan Hegmann\",\n        \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/96.png\"\n    },\n    {\n        \"speakerId\": 10,\n        \"company\": \"Abbott, Dietrich and Altenwerth\",\n        \"name\": \"Tracy Deckow\",\n        \"description\": \"Tempt not a desperate man.\",\n        \"profile\": \"https://dev-jayce.github.io/public/profile/86.png\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/session-speakers/{sessionSpeakerId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/session-speakers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"session-speakers",
+								"1"
+							]
+						},
+						"description": "CRASH 컨퍼런스의 세션 발표자 단건 조회용 API"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 01:01:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"speakerId\": 1,\n    \"company\": \"Mraz Group\",\n    \"name\": \"Etha Corkery\",\n    \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n    \"profile\": \"https://dev-jayce.github.io/public/profile/11.png\"\n}"
+						},
+						{
+							"name": "SessionSpeaker Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/9999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"9999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:11:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"SessionSpeaker with speakerId 9999 not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/session-speakers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"Company Name\",\n    \"name\": \"SessionSpeaker Name\",\n    \"description\": \"SessionSpeaker Description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/session-speakers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"session-speakers"
+							]
+						},
+						"description": "CRASH 세션 발표자 생성 API\n\n아래 필드는 모두 필수값입니다.\n\n- \bcompany\n    \n- name\n    \n- description\n    \n\n관리자 계정으로만 호출할 수 있습니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\": \"Company Name\",\n    \"name\": \"SessionSpeaker Name\",\n    \"description\": \"SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:13:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"speakerId\": 11,\n    \"company\": \"Company Name\",\n    \"name\": \"SessionSpeaker Name\",\n    \"description\": \"SessionSpeaker Description\",\n    \"profile\": \"https://dev-jayce.github.io/public/profile/40.png\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"name\": \"SessionSpeaker Name\",\n    \"description\": \"SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:14:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"[company: 비어 있을 수 없습니다]\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\": \"Company Name\",\n    \"name\": \"SessionSpeaker Name\",\n    \"description\": \"SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:12:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\": \"Company Name\",\n    \"name\": \"SessionSpeaker Name\",\n    \"description\": \"SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:55:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 208546580 milliseconds ago at 2024-03-11T14:59:26.000Z. Current time: 2024-03-14T00:55:12.580Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/session-speakers/{sessionSpeakerId}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"Updated Company\",\n    \"name\": \"Updated SessionSpeaker name\",\n    \"description\": \"Updated SessionSpeaker Description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/session-speakers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"session-speakers",
+								"1"
+							]
+						},
+						"description": "CRASH 세션 발표자 수정 API\n\n아래 필드는 모두 선택값입니다. 정상적인 값이 전달된 경우에만 수정됩니다.\n\n- \bcompany\n- name\n- description\n    \n\n관리자 계정으로만 호출할 수 있습니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\": \"Updated Company\",\n    \"name\": \"Updated SessionSpeaker name\",\n    \"description\": \"Updated SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:14:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"speakerId\": 1,\n    \"company\": \"Updated Company\",\n    \"name\": \"Updated SessionSpeaker name\",\n    \"description\": \"Updated SessionSpeaker Description\",\n    \"profile\": \"https://dev-jayce.github.io/public/profile/60.png\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\": \"Updated Company\",\n    \"name\": \"Updated SessionSpeaker name\",\n    \"description\": \"Updated SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:13:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\": \"Updated Company\",\n    \"name\": \"Updated SessionSpeaker name\",\n    \"description\": \"Updated SessionSpeaker Description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:55:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 208563854 milliseconds ago at 2024-03-11T14:59:26.000Z. Current time: 2024-03-14T00:55:29.854Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/session-speakers/{sessionSpeakerId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/session-speakers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"session-speakers",
+								"1"
+							]
+						},
+						"description": "CRASH 세션 발표자 삭제 API\n\n관리자 계정으로만 호출할 수 있습니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:15:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:13:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/session-speakers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"session-speakers",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:55:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 208576547 milliseconds ago at 2024-03-11T14:59:26.000Z. Current time: 2024-03-14T00:55:42.547Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "CRASH 컨퍼런스의 세션 발표자 API 입니다.\n\n단순 정보 조회에 해당하는 GET API를 제외하고\n\nJWT 기반 인증용 토큰값을 Authorization 헤더에 함께 전달해주셔야 합니다.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXljZSIsImlhdCI6MTcxMDgxMzUxNywiZXhwIjoxNzEwODI0MzE3fQ.wztPDPdYrhPslYppG-ydkUzZhS7xdUG7BvRuD--9dSg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Registration API",
+			"item": [
+				{
+					"name": "/registrations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/registrations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"registrations"
+							]
+						},
+						"description": "현재 로그인 된 유저의 CRASH 컨퍼런스 등록 현황 목록 조회용 API입니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:57:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"registrationId\": 1,\n        \"user\": {\n            \"userId\": 1,\n            \"username\": \"jayce\",\n            \"name\": \"Dev Jayce\",\n            \"email\": \"jayce@crash.com\"\n        },\n        \"session\": {\n            \"sessionId\": 5,\n            \"title\": \"Rosemary Sutcliff\",\n            \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.To be, or not to be: that is the question.An honest tale speeds best, being plainly told.See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n            \"category\": \"AI\",\n            \"dateTime\": \"2024-03-03T00:53:21.755195Z\",\n            \"speaker\": {\n                \"speakerId\": 2,\n                \"company\": \"Metz-Tremblay\",\n                \"name\": \"Somer Mayert\",\n                \"description\": \"Not stepping o'er the bounds of modesty.\",\n                \"profile\": \"https://dev-jayce.github.io/public/profile/45.png\"\n            }\n        }\n    },\n    {\n        \"registrationId\": 2,\n        \"user\": {\n            \"userId\": 1,\n            \"username\": \"jayce\",\n            \"name\": \"Dev Jayce\",\n            \"email\": \"jayce@crash.com\"\n        },\n        \"session\": {\n            \"sessionId\": 6,\n            \"title\": \"Brandy of the Damned\",\n            \"body\": \"How bitter a thing it is to look into happiness through another man's eyes!Brevity is the soul of wit.So wise so young, they say, do never live long.Good Night, Good night! Parting is such sweet sorrow, that I shall say good night till it be morrow.\",\n            \"category\": \"BACKEND\",\n            \"dateTime\": \"2024-03-03T00:53:21.757624Z\",\n            \"speaker\": {\n                \"speakerId\": 3,\n                \"company\": \"Torphy-Lindgren\",\n                \"name\": \"Gerry Dicki\",\n                \"description\": \"O Romeo, Romeo! wherefore art thou Romeo?.\",\n                \"profile\": \"https://dev-jayce.github.io/public/profile/100.png\"\n            }\n        }\n    }\n]"
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:56:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 114006191 milliseconds ago at 2024-03-12T17:15:54.000Z. Current time: 2024-03-14T00:56:00.191Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/registrations/{registrationId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/registrations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"registrations",
+								"1"
+							]
+						},
+						"description": "현재 로그인 된 유저의 CRASH 컨퍼런스 등록 상세 정보 조회용 API입니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:57:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"registrationId\": 1,\n    \"user\": {\n        \"userId\": 1,\n        \"username\": \"jayce\",\n        \"name\": \"Dev Jayce\",\n        \"email\": \"jayce@crash.com\"\n    },\n    \"session\": {\n        \"sessionId\": 5,\n        \"title\": \"Rosemary Sutcliff\",\n        \"body\": \"Blow, blow, thou winter wind! Thou art not so unkind as man's ingratitude.To be, or not to be: that is the question.An honest tale speeds best, being plainly told.See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n        \"category\": \"AI\",\n        \"dateTime\": \"2024-03-03T00:53:21.755195Z\",\n        \"speaker\": {\n            \"speakerId\": 2,\n            \"company\": \"Metz-Tremblay\",\n            \"name\": \"Somer Mayert\",\n            \"description\": \"Not stepping o'er the bounds of modesty.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/45.png\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Registration Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations/9999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations",
+										"9999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:58:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"Registration with registrationId 9999 and name Dev Jayce not found.\"\n}"
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:56:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 114015700 milliseconds ago at 2024-03-12T17:15:54.000Z. Current time: 2024-03-14T00:56:09.700Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/registrations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sessionId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/registrations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"registrations"
+							]
+						},
+						"description": "현재 로그인 된 유저의 CRASH 컨퍼런스 등록 API 입니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sessionId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:01:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"registrationId\": 1,\n    \"user\": {\n        \"userId\": 1,\n        \"username\": \"jayce\",\n        \"name\": \"Dev Jayce\",\n        \"email\": \"jayce@crash.com\"\n    },\n    \"session\": {\n        \"sessionId\": 1,\n        \"title\": \"The Man Within\",\n        \"body\": \"I like this place and willingly could waste my time in it.When sorrows come, they come not single spies, but in battalions.The king's name is a tower of strength.See, how she leans her cheek upon her hand! O that I were a glove upon that hand, that I might touch that cheek!.\",\n        \"category\": \"FRONTEND\",\n        \"dateTime\": \"2024-03-21T02:01:18.837183Z\",\n        \"speaker\": {\n            \"speakerId\": 1,\n            \"company\": \"Olson Group\",\n            \"name\": \"Bertram Carter\",\n            \"description\": \"Not stepping o'er the bounds of modesty.\",\n            \"profile\": \"https://dev-jayce.github.io/public/profile/15.png\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Registration Already Exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sessionId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:01:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"CONFLICT\",\n    \"message\": \"Registration with registrationId 1 and name Dev Jayce already exists.\"\n}"
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sessionId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:56:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 114025888 milliseconds ago at 2024-03-12T17:15:54.000Z. Current time: 2024-03-14T00:56:19.888Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/registrations/{registrationId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/registrations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"registrations",
+								"1"
+							]
+						},
+						"description": "현재 로그인 된 유저의 CRASH 컨퍼런스 등록 취소 API 입니다."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:09:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Registration Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations/9999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations",
+										"9999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 02:09:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"Registration with registrationId 9999 and name Dev Jayce not found.\"\n}"
+						},
+						{
+							"name": "JWT Expired",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/registrations/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"registrations",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 Mar 2024 00:56:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"UNAUTHORIZED\",\n    \"message\": \"JWT expired 114037889 milliseconds ago at 2024-03-12T17:15:54.000Z. Current time: 2024-03-14T00:56:31.889Z. Allowed clock skew: 0 milliseconds.\"\n}"
+						}
+					]
+				}
+			],
+			"description": "CRASH 컨퍼런스의 등록 API 입니다.\n\nJWT 기반 인증용 토큰값을 Authorization 헤더에 함께 전달해주셔야 합니다.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXljZSIsImlhdCI6MTcxMDgxMzUxNywiZXhwIjoxNzEwODI0MzE3fQ.wztPDPdYrhPslYppG-ydkUzZhS7xdUG7BvRuD--9dSg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

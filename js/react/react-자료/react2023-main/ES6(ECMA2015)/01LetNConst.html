@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6-01Variable.html</title>
+</head>
+<body>
+    <h2>let 과 const</h2>
+    <script>
+        /*
+        변수의 선언
+            const : 상수처럼 선언 후 값이 바뀌지 않는 경우 사용함.
+            let : 일반적인 변수로 선언할 때 사용. var와 동일함.
+        */
+        const num = 100;//상수로 선언함
+        //1~10까지 더하는 프로그램을 함수로 선언함
+        let sumLimit = function (start, end) {            
+            let sum = 0;
+            //start에서 end까지의 누적합을 반환함
+            for(var i=start ; i<=end ; i++){
+                sum += i;
+            }
+            return sum;
+        }
+        let func1 = function(){
+            let result = sumLimit(1, 10);
+            console.log("변수 result="+result);
+            console.log("상수 num="+num);
+            //num = 200; //상수이므로 값을 재할당 할 수 없음.
+        }
+    
+        /*
+        블럭의 유효범위(Block Scope)
+        기존 JS에서의 scope
+            : 변수의 유효범위는 블록단위로 제한되지 않아 처음에 
+            생성된 변수 a는 for문안에서 값만 1로 변경되는 형태가 되고
+            종료시점에 출력하면 for문의 a값이 출력된다. 
+        */
+        let func2 = function(){
+            var a = 10;
+            for(var a=1 ; a<=10 ; a++){
+                console.log('for문안의 a='+ a);//1~10까지 출력됨.
+            }
+            console.log('for문밖의 a='+ a);//for문내의 변수a가 사용되어 11이 출력됨.    
+        }
+            
+        /*
+        ES6에서의 Scope
+            : 키워드 let은 블럭내에서 유효범위를 가지게 되므로
+            변수 b는 전역변수가된다. 그리고 for문 안에서 선언된 변수는
+            지역변수가 되어 지역을 벗어나면 소멸된다. 따라서 JAVA와
+            동일한 범위를 가지게 된다. 
+        */
+        let func3 = function(){
+            let b = 10;
+            for(let b=1 ; b<=10 ; b++){
+                console.log('for문안의 b='+ b);//1~10까지 출력
+                let ball = "야구공";
+            }
+            console.log('for문밖의 b='+ b);//for문 앞에서 선언된 변수가 출력되므로 10
+            //console.log('ball(if문 이후)='+ ball);//지역변수이므로 에러 발생됨.
+        }
+	</script>
+    <button type="button" onclick="func1();">버튼1</button>
+    <button type="button" onclick="func2();">버튼2</button>
+    <button type="button" onclick="func3();">버튼3</button>
+</body>
+</html>

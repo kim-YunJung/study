@@ -1,0 +1,8 @@
+//https://www.notion.so/TypeScript-0beb25a670964eb7a99169c8adb8a530?pvs=4
+
+//ts 실행을 위한 명령어
+npm install -g typescript#타입스크립트 생성
+
+tsc index.ts#실행하기 위해 타입스크립트를 자바스크립트로 변환
+
+node index.js#index.js 실행

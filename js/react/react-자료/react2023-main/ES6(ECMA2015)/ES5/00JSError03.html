@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSError03.html</title>
+</head>
+<body>
+    <h2>JavaScript의 문제점3</h2>
+    <button id="btn">클릭하세요</button>
+    <p id="demo"></p>
+    <script>
+        //JS에서 클래스 생성
+        class Animal {
+            //JS에서 생성자는 클래스명 대신 constructor()를 사용한다.
+            constructor() {
+                this.name = "고양이";
+            }
+            /*
+            멤버함수 내에서 this를 사용하면 당연히 name을 가리켜야 하지만, 
+            호출하는 주체에 따라 this가 달라지게된다. 로딩시에는 window객체가
+            되고, 버튼을 눌렀을때는 button객체를 가리키게 된다. 
+            */
+           	changeName = function() {
+                /*
+                해당 코드에서는 this.name을 사용할 수 없다. 
+                window객체나 button객체에는 name속성이 없기 때문이다.
+                */
+                //document.getElementById("demo").innerHTML += "name:"+this.name;
+                document.getElementById("demo").innerHTML += this;
+            }
+        }
+
+        //객체생성
+        myAnimal = new Animal();
+        /*
+        window객체에 load 이벤트를 붙였으므로, 해당 문서의 로드가 완료되었을때
+        changeName() 함수를 호출한다. => 여기서 this는 window객체가 된다. 
+        */
+        window.addEventListener("load", myAnimal.changeName);
+        /*
+        상단의 버튼에 click 이벤트를 붙였으므로, 버튼 클릭시 함수를 호출한다. 
+        => 여기서 this는 button객체가 된다. 
+        */
+        document.getElementById("btn").addEventListener("click", myAnimal.changeName);
+    </script>    
+    <!--     
+    HTML에서 이벤트를 실행하는 3가지 방법
+
+    1. <div 이벤트핸들러="함수()"></div>
+
+    2. <script>
+        window.이벤트핸들러 = function(){
+            실행부;
+        }
+    </script>
+
+    3. window.addEventListener("이벤트명", function(){
+        실행부;
+    }); 
+    -->
+
+        class Person (
+            int age;
+            String name;
+            public Person(){
+                this.age = 10;
+                this.name = "코스모";
+            }
+            public Person(int a){
+                this();
+            }
+            public void myAge(){
+                this.메소드명()ㅣ
+            }
+        )
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+//https://www.notion.so/TypeScript-0beb25a670964eb7a99169c8adb8a530?pvs=4
+
+/* number / string / boolean / null / undefined / any */
+let a:number = 3;
+let b:string = "me";
+let c:any = 4;//아직 형식이 정해지지 않았을 경우 any를 사용하나, 사용은 지양한다.
+
+let d:number | string = "abc";
+d = 3;
+
+let e:string[] = ['a', 'b'];
+
+//매개변수 타입은 숫자, 반환값도 숫자이다.
+function addNumber(a:number, b:number):number{
+	return a+b
+}
+
+addNumber(1, 2);
+

@@ -1,0 +1,79 @@
+//https://www.notion.so/TypeScript-0beb25a670964eb7a99169c8adb8a530?pvs=4
+
+//App:React.FC - 형식을 리액트 함수
+
+/* 타입을 만들어 준다. 
+	- type
+	- interface
+*/
+export type Restaurant = {
+	name : string;
+	category : string;
+	address : {
+		city : string;
+		detail : string;
+		zipCode : number;
+	}
+	menu : {
+		name : string;
+		price : number;
+		category : string;
+	}[]
+}
+
+/* 중간요소를 타입으로 만들었을 경우 */
+export type Address = {
+	city : string;
+	detail : string;
+	zipCode : number;
+}
+
+export type Menu = {
+	name : string;
+	price : number;
+	category : string;
+}
+
+export type Restaurant = {
+	name : string;
+	category : string;
+	address : Address;
+	menu : Menu[]
+}
+
+/* interface */
+interface OwnProps {
+	info : Restaurant,
+	changeAddress(address:Address):void//리턴타입이 없다.
+}
+
+/* 타입을 확장시킬때 */
+interface OwnProps extends Menu {
+	//새로 정의하고 싶은 내용 추가
+}
+
+type OwnProps = Menu & {
+	//새로 정의하고 싶은 내용 추가
+}
+
+/* 정의한 타입에서 빼고 싶을 경우 - Omit */
+export type AddressWithoutZip = Omit<Address, 'zipCode'>
+//Address에서 zipCode를 빼준다.
+
+interface OwnProps extends Omit<Menu, 'price'> {
+	//새로 정의하고 싶은 내용 추가
+}
+
+/* 추가하고 싶을 경우 */
+export type RestaurantOnlyCategory = Pick<Restaurant, 'category'>
+//Restaurant에서 category만 가져온다.
+
+/* ---- */
+export type ApiResponse<T>{
+	data:T[],
+	totalPage:number,
+	page:number
+}
+
+export type ResturantResponse = ApiResponse<Restaurant>
+export type menuResponse = ApiResponse<Menu>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.error("프라미스3");
+        //객체생성
+        var userInfo = {
+            id : 'tjoeun', pw : '1234'
+        };
+        function parseValue(param) {
+            return new Promise(function(resolve, reject) {
+                console.log('parseValue()호출', param);                
+                resolve(param);                
+            });
+        }
+        function auth(userinfo) {
+            return new Promise(function(resolve, reject) {
+                console.log('auth()호출', userinfo);
+                if(userinfo['id']=='tjoeun' && userinfo['pw']=='1234'){
+                    //r1 : '더나쁜', 
+                    var resultJSON = {
+                        r1 : '더조은', 
+                        r2 : '컴퓨터', 
+                        r3 : "아카데미"
+                    }
+                    resolve(resultJSON);
+                }
+                else{
+                    reject(new Error("인증에 실패했습니다."));
+                }
+            });
+        }
+        function display(result) {
+            return new Promise(function(resolve, reject) {
+                console.log('display()호출', result);
+                console.log(result['r1'], result['r2'], result['r3']);
+                if(result['r1']=='더나쁜'){
+                    reject('학원명이 잘못되었습니다.');
+                }
+            });
+        }
+        function authProcess(uInfo){
+            return new Promise(function(resolve, reject) {
+                console.log(uInfo['id'], uInfo['pw']);
+                if(userInfo){
+                    resolve(userInfo);
+                }                
+            });
+        }
+        let func3 = function(){
+            authProcess(userInfo)
+                .then(parseValue)
+                .then(auth)
+                .then(display)
+                .catch(function(eData){
+                    console.warn(eData);
+                });
+        }
+    </script>
+    <button type="button" onclick="func3();">버튼3</button>
+</body>
+</html>

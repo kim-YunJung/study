@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>스프레드 연산자(Spread operator)</h2>
+    <script>
+        /*
+        es5에서는 배열의 원소를 매개변수로 전달하려면 인덱스를 통해 별도로 지정해야 했지만
+        스프레드 연산자를 사용하면 배열 형태에서 바로 함수 인수로 넣어줄 수 있다.
+        */
+        //es5 방식
+        var numbers = [9, 4, 7, 1]; 
+        let result1 = Math.min(numbers[0], numbers[1], numbers[2], numbers[3]);
+        console.log("결과1", result1);
+
+        //es6의 스프레드 연산자 사용
+        let result2 = Math.min(...numbers);
+        console.log("결과2", result2);
+
+        var input = [{name:'철수',age:10}, {name:'영희',age:11}, {name:'유겸',age:12}];
+        //map() 함수를 통해 각 객체의 나이를 인수로 전달한다. 
+        var maxAge = Math.max(...input.map((item) => item.age));
+        console.log('결과3(나이의최대값)', maxAge); // 2
+
+
+        //기존 객체에 프로퍼티 추가하기
+        var boy = { name:'유겸', job:'초등학생'};
+        boy = {...boy, age:12}; 
+        console.log('결과4', boy);
+
+        //프로퍼티 업데이트 하기 
+        boy = {...boy, name:'유비', age:50}; 
+        console.log('결과5', boy);
+    </script>
+</body>
+</html>

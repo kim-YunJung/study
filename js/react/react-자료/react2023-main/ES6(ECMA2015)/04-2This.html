@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>화살표함수를 통해 this의 문제 해결</h2>       
+
+    <button id="btn2">클릭하세요</button>
+    <p id="myDiv2"></p>
+
+    <script>
+	class Car {
+		constructor() {
+			this.color = "빨간색 스포츠카";
+		}
+        //멤버함수를 화살표함수로 선언하면..
+		changeColor = () => {               
+            /*
+            this를 사용했을때 항상 동일한 객체를 가리키게 되어
+            아래 두개의 문장 모두 사용할 수 있다. 
+            */
+			document.getElementById("myDiv2").innerHTML += this.color+"=";
+			document.getElementById("myDiv2").innerHTML += this+"<br>";
+		}
+	}        
+	myCar = new Car();
+    /*
+    호출하는 주체가 달라져도 this는 항상 Car객체를 가리키게된다. 
+    */
+	window.addEventListener("load", myCar.changeColor);       
+	document.getElementById("btn2").addEventListener("click", 
+		myCar.changeColor);
+    </script>    
+</body>
+</html>

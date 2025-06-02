@@ -1,0 +1,23 @@
+https://www.notion.so/bf3e1931cf674e5dbd8383d20080dc15?pvs=4
+https://www.notion.so/d563bba6ee724de8a34c65c9fbb29e4b?pvs=4
+
+
+참조
+https://github.com/Around-Hub-Studio/around-hub-docker
+
+
+**포트 명령어
+
+#--name ${컨테이너 이름} -> 해당이름으로 컨테이너 생성
+#-d -> 백그라운드로 동작
+docker rnu --name ${컨테이너 이름} -d ${목록 이름}
+#docker run --name test -d httpd
+
+#-p ${host_port}:${container_port}
+#호스트 포트 ${host_port}
+#컨테이너 포트 ${container_port}로 세팅하여 네트워크를 설정
+docker run --name ${컨테이너 이름} -d -p ${host_port}:${container_port} ${목록 이름}
+#docker run --name test -d -p 8080:80 httpd
+#컨터이너와 통신을 위해 호스트의 포트와 컨테이너 포트를 설정
+#호스트 - 개인/서버
+#컨테이너 - 외부와 통신을 위한

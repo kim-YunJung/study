@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>클래스와 상속</h2>
+    <script>
+    //부모클래스
+	class Car {
+        //생성자함수 : 클래스명과 동일하게 정의하지 않는다. 
+		constructor(b) {
+            //멤버변수 선언 및 초기화
+			this.brand = b;
+		}
+        //Arrow function을 통해 멤버함수를 선언한다.
+		showCar = () => {
+            //호출하는 주체에 상관없이 this는 해당 Car객체를 가리키게된다.
+			return '내 자동차의 제조사는 '+ this.brand +' 입니다.';
+		}
+	}   
+    class Model extends Car {
+        constructor(b, m) {
+            super(b);//부모클래스의 생성자 함수 호출
+            this.model = m;
+        }  
+        showModel() {
+            //부모클래스의 함수 호출 및 멤버변수 출력
+            return this.showCar() + ' 내 자동차의 이름은 '+ 
+                this.model +' 입니다.';
+        }
+    }  
+    console.error("ES6의 Class 생성");
+	mycar = new Car("아우디");  
+	console.log(mycar.brand);       
+	console.log(mycar.showCar());
+
+    console.error("ES6의 상속");
+    modelCar = new Model("Ford", "Mustang");    
+    console.log(modelCar.showModel());
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+*{ margin:5px; }
+
+.markingYes{
+  text-decoration: line-through;
+}
+.markingNo{
+  text-decoration: none;
+}

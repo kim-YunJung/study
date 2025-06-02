@@ -1,0 +1,53 @@
+#react-dom
+npm i react-dom
+
+#react-router-dom
+npm i react-router-dom
+
+#react-bootstrap
+npm install react-bootstrap bootstrap
+
+#axios
+npm i axios
+
+#react-query
+npm i @tanstack/react-query
+
+#devtools
+npm i @tanstack/react-query-devtools
+
+#spinner
+npm i react-spinners
+
+#silder
+npm i react-multi-carousel
+
+#font-awsome
+https://docs.fontawesome.com/v5/web/use-with/react
+
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+
+#react-paginate
+https://www.npmjs.com/package/react-paginate
+
+npm i react-paginate
+
+#formik
+npm i formik
+
+#React Helmet
+npm i react-helmet
+
+#Dotenv
+npm install dotenv --save
+
+#date-fns
+npm i date-fns
+
+#react-error-boundaries
+npm install react-error-boundary
+
+#추천 라이브러리
+https://ykss.netlify.app/translation/react_libraries_for_2024/

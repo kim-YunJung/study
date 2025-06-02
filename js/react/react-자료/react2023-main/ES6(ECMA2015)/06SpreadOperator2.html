@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>스프레드 연산자(Spread operator)</h2>
+    <script>
+        /*함수에서의 Spread Operator
+        Rest Parameter : 함수를 호출할 때 함수의 매개변수(parameter)를 spread operator로 작성한 형태
+            Rest 파라미터를 사용하면 함수의 파라미터로 오는 값들을 모아서 "배열"에 집어넣습니다
+        */
+        function add(...rest) {
+            let sum = 0;
+            for (let item of rest) {
+                sum += item;
+            }
+            return sum;
+        }
+        console.log('결과1-1', add(1)); // 1
+        console.log('결과1-2', add(1, 2)); // 3
+        console.log('결과1-3', add(1, 2, 3)); // 6
+
+        /* 일반 매개변수와 혼용해서 사용할 수 있다. 단, Rest파라미터는 항상 제일 마지막 파라미터로 있어야 합니다.
+        addMul (...rest, method){ }와 같은 방식으로는 사용할 수 없다.*/
+        let addMul = (method, ...rest) => { 
+            if (method==='add'){
+                let sum = 0;
+                for (let item of rest) {
+                    sum += item;
+                }    
+                return sum;    
+            } 
+            else if (method==='multiply'){
+                let mul = 1;
+                for (let item of rest) {
+                    mul *= item;
+                }
+                return mul;    
+            }
+        } 
+        console.log('결과2-1', addMul('add', 1,2,3,4) ); // 10
+        console.log('결과2-2', addMul('multiply', 1,2,3,4) ); // 24
+    </script>
+</body>
+</html>

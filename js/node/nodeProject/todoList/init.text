@@ -1,0 +1,24 @@
+### 터미널
+npm init -y
+npm install express mongoose
+npm install body-parser
+//미들웨어로 전송받은 body를 파싱해준다.
+npm install nodemon
+//새로운 내용 추가시 자동 재실행 됨
+//대신 실행 명령어 node app.js -> nodemon app.js
+설치 후 실행 되지 않을 경우 sudo npm install -g nodemon 
+
+npm i mongoose-sequence
+//순차적으로 id증가 시킨다.
+
+npm i cors
+//cors에러 대체를 위해 
+
+npm i dotenv
+.env설정 파일의 내용을 읽기 위해 필요
+
+npm i bcryptjs
+비밀 번호 등 암호화
+
+npm i jsonwebtoken
+토큰 발행하는 라이브러리

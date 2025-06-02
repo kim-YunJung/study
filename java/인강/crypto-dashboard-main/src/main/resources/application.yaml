@@ -1,0 +1,7 @@
+spring.application.name: crypto-dashboard
+
+price-monitor:
+  api-uri: http://${PRICE_MONITOR_HOST:localhost}:${PRICE_MONITOR_PORT:8888}/api/v1/prices/{cryptoUnit}-USD/market-price
+
+currency-monitor:
+  api-uri: http://${CURRENCY_MONITOR_HOST:localhost}:${CURRENCY_MONITOR_PORT:9999}/api/v1/currencies/{currencyUnit}

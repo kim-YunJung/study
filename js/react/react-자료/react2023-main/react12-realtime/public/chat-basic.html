@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #chatWindow{
+      border:1px solid black; width:280px; height:310px; 
+      overflow:scroll; padding:5px; margin-bottom: 10px;
+    }
+    input[name=message]{width:236px; height:30px;}
+    #sendBtn{height:35px; position:relative; top:1px; left:1px;}
+    #closeBtn{margin-bottom:3px; position:relative; top:2px; left:-2px;}
+    #chatId{
+      width:143px; height:24px; border:1px solid #AAAAAA; 
+      background-color:#EEEEEE;
+    }
+    .myMsg{text-align:right;}
+  </style>
+</head>
+<body>
+  <h2>Realtime 채팅</h2>
+  대화명 : 홍길동 &nbsp;&nbsp;
+  <button id="closeBtn" onClick="window.self.close();">채팅 종료</button>
+  <div id="chatWindow">
+    <div style='text-align:right'>My 메세지</div>
+    <div>Your 메세지</div>
+  </div>
+  <div>
+    <form>
+      <input type="hidden" name="chatRoom" value={roomId} />
+      <input type="hidden" name="chatId" value={userId} />
+      <input type="text" name="message" />
+      <button type="submit" id="sendBtn">전송</button>
+    </form>
+  </div>
+</body>
+</html>

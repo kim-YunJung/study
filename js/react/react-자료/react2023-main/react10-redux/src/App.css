@@ -1,0 +1,9 @@
+.root, .root div {
+  border: 5px solid purple;
+  margin: 10px;
+  padding: 10px;
+}
+#grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

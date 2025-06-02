@@ -1,0 +1,20 @@
+https://www.mockaroo.com/
+대용량 테스트 데이터를 생성해준다.
+
+-----
+
+https://www.datafaker.net/
+
+https://www.datafaker.net/documentation/getting-started/
+1. [Installation]를 통해 각 환경에 맞게 설정
+2. [Fake Data Providers] 데이터 형식
+https://www.datafaker.net/documentation/providers/
+3. [예] API가 실행 전 테스트 데이터를 추가
+https://zrr.kr/4OIo
+
+run() 스프링 실행 시, 실행되기 원하는 내용을 작성한다.
+
+-> userService.signUp(new UserSignUpRequestBody("jayce", "1234", "Dev Jayce", "jayce@crash.com"));
+->  userService.signUp(new UserSignUpRequestBody(faker.name().name(), "1234", faker.name().fullName(), faker.internet().emailAddress()));
+
+faker을 사용하면 위처럼 변경이 가능하다.

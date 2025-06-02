@@ -1,0 +1,10 @@
+- react 프로젝트 생성
+npx create-react-app [프로젝트명]
+
+- 기존 폴더 받은 후 초기화
+npm install
+
+- gitignore 설정 하기
+https://www.toptal.com/developers/gitignore
+https://www.toptal.com/developers/gitignore/api/vim,visualstudio,visualstudiocode,macos,windows,react,reactnative,dotenv,node,nextjs,stylus
+

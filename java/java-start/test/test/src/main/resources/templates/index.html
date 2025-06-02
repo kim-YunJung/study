@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Uno Kim">
+    <title>index</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+    <main class="container">
+        <div class="sealed-graph">
+            <form class="row g-4" action="/searchList" method="get">
+                <div class="col-auto">
+                    <p class="h5">공항 코드</p>
+                    <select class="form-select form-select-sm" th:name="iata">
+                        <option value="">공항 코드 선택</option>
+                        <option th:each="iata : ${iatas}"
+                                th:value="${iata}"
+                                th:text="${iata}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-auto">
+                    <p class="h5">이름</p>
+                    <select th:name="name" class="form-select form-select-sm">
+                        <option value="">이름 선택</option>
+                        <option th:each="name : ${names}"
+                                th:value="${name}"
+                                th:text="${name}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-auto">
+                    <p class="h5">도시</p>
+                    <select th:name="city" class="form-select form-select-sm">
+                        <option value="">도시 선택</option>
+                        <option th:each="city : ${citys}"
+                                th:value="${city}"
+                                th:text="${city}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">검색</button>
+                </div>
+            </form>
+        </div>
+
+
+    </main>
+
+</body>
+</html>

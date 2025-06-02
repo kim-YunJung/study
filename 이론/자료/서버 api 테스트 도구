@@ -1,0 +1,10 @@
+서버 api 테스트 도구
+터미널 >> curl / 포스트맨
+
+curl >
+get 메소드 호출
+curl http://localhost:3000/login
+-> 작성된 html이 호출된다. 
+
+curl http://localhost:3000/login -X POST 
+curl http://localhost:3000/login -X POST -d '{"id": "test", "pwd":"test"}' -H "Content-Type : application/json"

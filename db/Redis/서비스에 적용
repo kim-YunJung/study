@@ -1,0 +1,14 @@
+[서비스에 적용]
+
+[추가]
+- build.gradle 파일에 아래의 내용 추가
+
+implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+- redis 설정 추가한다.
+https://zrr.kr/nES8
+
+[Redis Cluster를 사용할 때 Spring Boot와 Lettuce client를 설정해 드립니다]
+https://meetup.nhncloud.com/posts/379
+
+https://docs.spring.io/spring-data/redis/reference/redis/drivers.html

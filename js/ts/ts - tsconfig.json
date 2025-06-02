@@ -1,0 +1,13 @@
+//https://www.notion.so/TypeScript-0beb25a670964eb7a99169c8adb8a530?pvs=4
+
+## tsconfig.json
+프로젝트를 컴파일하는 데 필요한 루트 파일과 컴파일러 옵션을 지정
+
+- https://www.typescriptlang.org/ko/docs/handbook/tsconfig-json.html
+- https://typescript-kr.github.io/pages/tsconfig.json.html
+
+https://www.typescriptlang.org/ko/docs/handbook/react.html
+https://create-react-app.dev/docs/getting-started
+
+#Creating a TypeScript app
+npx create-react-app my-app --template typescript

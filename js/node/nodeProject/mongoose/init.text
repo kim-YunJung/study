@@ -1,0 +1,13 @@
+https://mongoosejs.com/
+https://mongoosejs.com/docs/guide.html
+
+
+https://www.npmjs.com/package/validator
+validate 라이브러리
+
+npm init -y
+npm install mongoose
+node app.js ---> app.js 파일 실행
+
+npm i validator
+validator 설치

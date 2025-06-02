@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--      
+    forEach() 함수
+        - array의 크기인 N번 반복하여 콜백함수를 호출한다. 
+        - thisArgs는 콜백함수 내에서 인수로 사용된다. this.XX와 같이 사용할 수 있다. 
+        - 반환값이 없다.
+
+        형식]
+            var array = [1,2,3,....N]
+            array.forEach(
+                callbackFunction(현재값, 현재값의인덱스, 호출한배열){
+                    실행부;
+                }, 
+                thisArgs
+            );
+-->
+<script>
+    function forEachTest1(){        
+        console.error("forEachTest1() called..기본사용법");    
+        //콜백함수에서의 반환값이 없으므로 단순히 5번 반복되어 출력된다. 
+        var oldArray = [1,2,3,4,5];
+        oldArray.forEach(function(currentVal, index, array){
+            /*
+            현재 루프에서의 값과 인덱스가 출력된다. 
+            루프1 : 현재값 1, 인덱스 0
+            루프2 : 현재값 2, 인덱스 1 
+            ...
+            */
+            console.log('현재값:'+currentVal, '인덱스:'+index, '배열:'+array);           
+        });
+    }; 
+ 
+    function forEachTest2(){
+        console.error("forEachTest2() called..배열 요소의 합계");    
+        var oldArray = [1,2,3,4,5];
+        //콜백함수 내에서 사용할 변수를 선언
+        var sum = 0;
+        /*
+        앞에서 무기명 함수로 선언했던 콜백함수를 외부함수로 선언한다. 이때 파라미터는 currentVal만 사용한다. index, array는 필요하지 않은경우 생략할 수 있다. 
+        */
+        function getSum(currentVal){
+            //현재 루프의 원소값을 변수 sum에 누적해서 더한다.
+            sum += currentVal;
+        }
+        //앞에서 선언한 콜백함수를 forEach()의 첫번째 인수로 사용함.
+        oldArray.forEach(getSum);
+        //1~5까지의 합을 출력: 15
+        console.log(sum);
+    }
+
+    function forEachTest3(){
+        console.error("forEachTest3() called..args 매개변수 사용하기");
+        //배열과 변수 선언
+        var oldArray = [1,2,3,4,5,6,7,8,9,10];
+        var sum = 0;
+        //콜백함수에서 사용할 인수를 JSON객체로 정의. 
+        var myArgs = {min:3, max:7};
+        //콜백함수 정의
+        function getSum(currentVal){
+            /*
+            인수로 전달된 myArgs를 사용하여 조건에 적용
+            */
+            if(currentVal>=this.min && currentVal<=this.max){
+                sum += currentVal;
+            }
+        }
+        //콜백함수와 myArgs를 파라미터로 forEach()함수 호출
+        oldArray.forEach(getSum, myArgs);
+        //3~7까지의 합 : 25
+        console.log(sum);
+    }
+</script>    
+<body>
+    <h2>고차함수 - forEach()</h2>
+    <div>
+        <input type="button" onclick="forEachTest1();" value="forEach1">
+        <input type="button" onclick="forEachTest2();" value="forEach2">
+        <input type="button" onclick="forEachTest3();" value="forEach3">
+        <input type="button" onclick="forEachTest4();" value="forEach4">
+    </div>
+</body>
+</html>

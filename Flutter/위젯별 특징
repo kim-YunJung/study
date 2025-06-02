@@ -1,0 +1,7 @@
+MaterialApp - materia 테마의 위젯
+
+Scaffold( - 앱의 상 / 중 / 하를 구분
+	 appBar: AppBar() //앱 바로 상단을 의미
+	 , body : ColoredBox() //앱의 컨텐츠로 중간을 의미
+	 , bottomNavigationBar: BottomAppBar()//하단 바로 하단을 의미
+)

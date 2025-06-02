@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>스프레드 연산자(Spread operator)</h2>
+    <script>
+    /*
+    스프레드 연산자는 객체 또는 배열의 값을 다른객체나 배열로 복제하거나 옮길때 사용한다.
+    '...'와 같이 다소 특이한 형태의 문법이다. 
+    배열, 문자열, 객체 등 반복 가능한 객체 (Iterable Object)를 개별 요소로 분리할 수 있다.
+    객체의 특정부분만 변화시키거나, 최초의 상태를 유지하며 데이터를 추가하는 등의 경우에 사용된다.
+    */
+
+    //es5에서 배열 병합 : concat() 함수 사용
+    let arr1 = [1,2,3]; 
+    let arr2 = [4,5,6]; 
+    let new_arr1 = arr1.concat(arr2); 
+    console.log('결과1', new_arr1); // [ 1, 2, 3, 4, 5, 6 ] 
+
+
+    //es6에서 배열 병합 : 스프레드 연산자 사용
+    //병합1
+    let new_arr2 = [...arr1, ...arr2]; 
+    console.log('결과2', new_arr2); 
+
+    //병합2
+    let arr3 = [1, 2, 3]; 
+    let arr4 = [...arr3, 4, 5, 6]; 
+    console.log('결과3', arr4);
+
+    //문자열을 개별 요소로 분리할 수 있다.
+    let str1 = 'good morning'; 
+    let str2 = [...str1]; 
+    console.log('결과4', str2);
+     
+    // 단순 변수 할당. 이 경우 배열참조가 되므로, arr2를 변경하면 원본인 arr1도 변경된다.
+    let arr_src = ['철수','영희']; 
+    let arr_cpy1 = arr_src; 
+    arr_cpy1.push('바둑이'); 
+    console.log('결과5-1', arr_cpy1); // [ "철수", "영희", "바둑이" ]    
+    console.log('결과5-2', arr_src); //원본도 변경됨
+    
+    //완전히 새로운 복사본 배열을 생성해준다. 
+    var arr_cpy2 = arr_src.slice();
+    arr_cpy2.push('거북이'); 
+    console.log('결과6-1', arr_cpy2); // [ "철수", "영희", "바둑이" ]    
+    console.log('결과6-1', arr_src); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+---> be setting 
+
+//초기화
+npm init -y
+//셋팅에 필요한 것 받기
+npm i express mongoose body-parser nodemon cors dotenv bcryptjs jsonwebtoken
+
+npm start
+
+//시작
+nodemon app
+
+---> fe setting
+
+//초기화
+npm install
+
+//cors
+npm i http-proxy-middleware
+
+//시작
+npm start
+
+//카드 정보 입력을 위한
+npm i react-credit-cards-2
+
+//구글 로그인
+npm i @react-oauth/google
+

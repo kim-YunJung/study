@@ -1,0 +1,48 @@
+- 스타일을 추가 할 경우 className이라는 이름으로 추가해서 css를 추가해준다.
+<div className='nav'></div>
+
+- 직접 스타일을 추가할 경우
+<h3 style={{color: 'red'}}>{text}</h3>
+<h3 style={{color: 'red', fontSize : '16px'}}>{text}</h3>
+
+- 변수를 넣어주고 싶은 경우 {}를 사용해준다.
+function App() {
+  let text = 'text';
+
+  return (
+    <div className="App">
+      /* JSX */
+      <div className='nav'>
+        <h3>{text}</h3>
+      </div>
+    </div>
+  );
+}
+
+- useState
+자주 변경될 거 같은 내용에서 적용한다.
+(변동시 자동으로 html에 반영되게 만들고 싶을 때)
+-> 기존 state == 신규 state의 경우 변경을 하지 않는다.
+
+let [a, b] = useState('텍스트!');
+<h4>{a}</h4>
+
+let [t1, t2] = useState(['텍스트01', '텍스트02', '텍스트03']);
+<h4>{t1[0]}</h4>
+<button onClick={()=>{
+  let copyText = [...t1];
+  copyText[0] = 'text01';
+
+  t2(copyText);
+}}>글 수정</button>
+
+let [count, clickPlus] = useState(0);
+<h4><span onClick={ () => clickPlus( count+1 ) }>버튼</span> {count}</h4>
+
+- 컴포넌트 만들기
+다른 함수 밖에 선언한다.
+첫글자는 대문자로 선언한다.
+return() 안에 html을 넣는다. - 하나의 태그로 시작해서 하나의 태그로 끝난다.
+
+
+

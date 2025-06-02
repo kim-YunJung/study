@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>화살표 함수(Arrow Functions)</h2>
+    <script>
+    /*
+    화살표 함수는 function 키워드 없이 함수를 만들 수 있다.
+    return 키워드 없이 값을 반환할 수 있다. 
+    Java의 람다식과 비슷하다.
+    형식] let 함수명 = (파라미터) => {함수의 실행부}
+        기존의 함수에서 function을 제거하고, 괄호사이에 화살표(=>)가 들어간다. 
+    */
+    //ES5에서 사용한 함수
+    var sumLimit1 = function (start, end) {
+        var sum = 0;
+        for(var i=start ; i<=end ; i++){
+            sum += i;
+        }
+        return sum;
+    }
+    let func1 = function(){
+        var result = sumLimit1(1, 10);
+        console.log("result="+result);
+    }
+
+    //ES6의 화살표 함수
+    let sumLimit2 = (start, end) => {
+        let sum2 = 0;
+        for(var i=start ; i<=end ; i++){
+            sum2 += i;
+        }
+        return sum2;
+    }
+    let func2 = function(){
+        let result2 = sumLimit2(1, 100);
+        console.log("result2="+result2);
+    }
+
+    //최대한으로 줄이면 이와같이 정의할 수 있다. 
+    helloStr = val => "Hello " + val;
+    /*
+    function helloStr(val) {
+        return "Hello " + val;
+    }
+    에서 function, return 키워드가 모두 제거되었고, 괄호사이에 => 가 들어간다. 
+    */
+    let func3 = function(){
+        document.getElementById("myPoint").innerHTML 
+            = helloStr("World!!!");
+    }
+    </script>
+    <p id="myPoint"></p>
+    <button type="button" onclick="func1();">버튼1</button>
+    <button type="button" onclick="func2();">버튼2</button>
+    <button type="button" onclick="func3();">버튼3</button>
+</body>
+</html>

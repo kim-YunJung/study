@@ -1,0 +1,19 @@
+https://www.notion.so/Swagger-b7c9546245b04175894e17e51a1c0b40?pvs=4
+
+Swagger
+
+bulid.gradle파일에서 `dependencies`에 추가해준다.
+
+`// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter`
+`implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'`
+
+
+서버 실행 시 오류 발생 시,
+Build and run using, Run tests using를  IntelliJ IDEA로 변경해주고 Gradle JVM의 버전이 11이 맞는지 확인 후 변경해준다.
+
+그래도 오류가 발생한다면, application.properties에 spring.mvc.pathmatch.matching-strategy=ant_path_matcher를 추가한다.
+
+정상적으로 서버가 실행되면, http://localhost:8080/swagger-ui/에서 아래와 같은 화면을 확인이 가능하다.
+
+https://springdoc.org/
+spring boot - Swagger-ui 추가하는 방법 안내

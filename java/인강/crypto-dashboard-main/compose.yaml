@@ -1,0 +1,30 @@
+services:
+  crypto-dashboard-frontend:
+    image: devjayce/crypto-dashboard-frontend
+    ports:
+      - "3000:3000"
+  crypto-dashboard:
+    image: crypto-dashboard:v1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - price-monitor
+      - currency-monitor
+    environment:
+      PRICE_MONITOR_HOST: price-monitor
+      PRICE_MONITOR_PORT: 8888
+      CURRENCY_MONITOR_HOST: currency-monitor
+      CURRENCY_MONITOR_PORT: 9999
+    networks:
+      - crypto-network
+  price-monitor:
+    image: price-monitor:v1
+    networks:
+      - crypto-network
+  currency-monitor:
+    image: currency-monitor:v1
+    networks:
+      - crypto-network
+
+networks:
+  crypto-network:

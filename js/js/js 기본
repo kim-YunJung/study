@@ -1,0 +1,58 @@
+//https://www.notion.so/javascript-45e41856bc7a493ba4111664216787e2?pvs=4
+
+const message = 'I\'m a boy.'
+consol.log(message)
+//I'm a boy로 출력된다.
+
+/* ----- */
+
+/*
+let name = user.name;
+let age = user.age;
+와 동일하다.
+*/
+let user = {name : "mike", age : 30};
+let {name , age} = user;
+console.log(name); //'mike'
+
+let {name: userName , age: userAge} = user;
+console.log(userName); //'mike'
+ 
+/* ----- */
+
+const mike = {name : 'mike'};
+const tom = {name : 'tom'};
+
+function showThisName(){
+	console.log(this.name)l];
+}
+
+showThisName();//"" -> 빈문자열이 반환된다.
+showThisName.call(mike);//"mike"
+
+function update(birthYear, occupation){
+	this.birthYear = birthYear;
+	this.occuption = occuption;
+}
+
+update.call(mike, 1999, 'singer');
+update.apply(mike, [1999, 'singer']);
+
+console.log(mike);//{name:'mike', birthYear:1999, occupation:"singer"}
+//둘다 동일한 결과가 나온다.
+
+const nums = [3, 10, 1, 6, 4];
+
+const minNum = Math.min(...nums);
+//this에 넣을 것이 없기에 임의의 값 null을 넣었다.
+const minNum = Math.min.apply(null, nums);
+const minNum = Math.min.call(null, ...nums);
+
+consol.log(minNum);//1
+
+const updateMike = update.bind(mike);
+updateMike(1999, 'police');
+console.log(mike);//{name:'mike', birthYear:1999, occupation:"police"}
+
+/* https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/assign */
+Object.assign()

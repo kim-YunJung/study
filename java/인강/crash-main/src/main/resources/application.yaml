@@ -1,0 +1,4 @@
+spring:
+  security:
+    user.name: crash-admin
+    user.password: crash-admin-password

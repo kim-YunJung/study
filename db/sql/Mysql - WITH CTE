@@ -1,0 +1,13 @@
+-> WITH CTE
+
+-- 특수 문자를 포함한 임의의 테이블 생성
+WITH CTE (col_1) AS (
+SELECT 'A%BC' UNION ALL
+SELECT 'A_BC' UNION ALL
+SELECT 'ABC'
+)
+SELECT * FROM CTE;
+
+https://umanking.github.io/2021/07/13/mysql-cte/
+https://www.mysqltutorial.org/mysql-basics/mysql-cte/
+https://github.com/YuniGK/doitmysql/blob/main/Chapter4/04-4.sql

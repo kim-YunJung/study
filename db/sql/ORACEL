@@ -1,0 +1,423 @@
+https://www.notion.so/ORACEL-1a0236cffe474eed89d83aa1c4a8a143?pvs=4
+
+
+# ORACEL 쿼리
+- 사용하여 모든 컬럼 출력하고 다시 특정 컬럼을 출력하고 싶을 경우
+테이블명.*를 붙여서 작성
+
+```sql
+SELECT DEPT.*, DEPTNO FROM DEPT;
+```
+
+- 연결 연산자
+
+```sql
+SELECT ENAME || SAL FROM EMP;
+```
+
+컬럼과 컬럼을 연결해서 출력 이름월급이 출력된다.
+
+- 중복된 데이터를 제거 DISTINCT, UNIQUE사용이 가능
+
+```sql
+SELECT DISTINCT JOB FROM EMP;
+SELECT UNIQUE JOB FROM EMP;
+```
+
+- 같지 않다.
+
+```sql
+!=
+^=
+<>
+```
+
+- YY / RR
+23을 YY(현재 세기의 연도로 인식)로 검색할 경우 2023
+23을 RR(현재 세기를 기준으로 이전 세기로 인식)로 검색할 경우 1923
+
+- 현재 내가 접속한 세션(로그인해서 로그아웃할 때까지의 한 단위)의 파라미터를 변경
+ALTER SESSION SET
+    
+    파라미터 설정을 변경, 나라마다 접속하는 세션마다 날짜 형식이 다를 수 있어 일관되게
+    검색위해 필요 ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YY';
+    
+- 버림
+
+```sql
+SELECT TRUNC(876.567, 1) FROM DUAL;
+```
+
+876.5가 출력됨
+
+- 나머지 값
+
+```sql
+SELECT MOD(10, 3) FROM DUAL;
+```
+
+1이 출력됨
+
+- 몫
+SELECT FLOOR(10/3) FROM DUAL;
+3이 출력됨
+
+- 날짜 간 개월 수
+MONTHS_BETWEEN(최신날짜, 예전날짜)
+
+```sql
+SELECT MONTHS_BETWEEN(SYSDATE, HIREDATE) FROM EMP;
+```
+
+날짜만 가지고 연산 할 경우
+TO_DATE(날짜, 날짜 포멧) - TO_DATE(날짜, 날짜 포멧)
+
+```sql
+SELECT TO_DATE('2023-06-01', 'YYYY-MM-DD') - TO_DATE('2021-06-01', 'YYYY-MM-DD') 
+FROM DUAL;
+```
+
+- 특정 날짜 뒤에 오는 요일 날짜
+
+```sql
+SELECT NEXT_DAY('2023/06/12', '월요일') FROM DUAL;
+```
+
+- 달의 마지막 날짜 출력
+
+```sql
+SELECT LAST_DAY('2023/06/12') FROM DUAL;
+```
+
+마지막 날까지 남은 날
+
+```sql
+SELECT LAST_DAY(SYSDATE) - SYSDATE FROM DUAL;
+```
+
+- 화폐 단위 표시
+
+```sql
+SELECT TO_CHAR(SAL*200, 'L999,999,999') FROM EMP;
+```
+
+- CASE / DECODE
+부서번호가 10번이면 300, 번호가 20이면 400, 아니면 0 출력
+
+```sql
+SELECT DECODE(DEPTNO, 10, 300, 20, 400, 0 FROM EMP;
+```
+
+사원 번호가 짝수 / 홀수인지를 출력
+
+```sql
+SELECT DECODE( MOD( EMPNO, 2 ), 0, '짝수', 1, '홀수') FROM EMP;
+```
+
+부서별 토탈 월급을 가로로 출력 →
+
+```sql
+SELECT SUM(DECODE (DEPTNO, 10, SAL) )
+, SUM(DECODE (DEPTNO, 20, SAL) )
+FROM EMP;
+```
+
+```sql
+SELECT CASE WHEN SAL >= 3000 THEN 500
+WHEN SAL >= 2000 THEN 300
+ELSE 0 END
+FROM EMP;
+```
+
+- 순위
+SAL 내림차순으로 순위를 출력
+
+```sql
+SELECT RANK() OVER (ORDER BY SAL DESC) FROM EMP;
+```
+
+RANK를 사용할 경우 1, 1, 3, 4, 5 같은 등수가 두개 일때 해당과 같이 출력된다.
+
+직업별 월급에 따른 순위를 출력
+
+```sql
+SELECT RANK() OVER(PARTITION BY JOB ORDER BY SAL DESC) FROM EMP;
+```
+
+직업별로 묶어서 순위를 부여 PARTITION BY를 사용
+
+```sql
+SELECT DENSE_RANK() OVER (ORDER BY SAL DESC) FROM EMP;
+```
+
+DENSE_RANK를 사용할 경우 1, 1, 2, 3, 4 같은 등수가 두개 일때 해당과 같이 출력된다.
+
+괄호 안에 값이 데이터 전체에서 순위가 어떻게 되는지 출력
+
+```sql
+SELECT DENSE_RANK('23/06/12') WITHIN GROUP (ORDER BY HIREDATE ASC) FROM EMP;
+```
+
+- NTILE 데이터의 등급을 출력
+
+- NULLS LAST NULL은 맨 아래에 출력
+ORDER BY SAL DESC NULLS LAST
+월급이 높은 것부터 출력되면 NULL은 맨 아래에 출력
+
+- CUME_DIST 분석 함수로 순위의 비율 출력
+
+- LISTAGG 데이터를 가로로 출력
+
+```sql
+SELECT LISTAGG(ENAME, ',') WITHIN GROUP (ORDER BY ENAME) FROM EMP GROUP BY DEPTNO;
+```
+
+CLARK, KING, MILLER 과 같이 출력된다.
+
+WITHIN GROUP 괄호에 속한 그룹의 데이터를 출력
+
+- LAG 전 행을 출력 / LEAD 다음 행을 출력
+
+```sql
+SELECT LAG(SAL, 1) OVER (ORDER BY SAL ASC) '전'
+, LEAD(SAL, 1) OVER (ORDER BY SAL ASC) '후'
+FROM EMP;
+```
+
+부서별로 구분해서 전행, 다음행을 출력
+
+```sql
+SELECT LAG(SAL, 1) OVER (PARTITION BY DEPTNO ORDER BY SAL ASC) '전'
+, LEAD(SAL, 1) OVER (PARTITION BY DEPTNO ORDER BY SAL ASC) '후'
+FROM EMP;
+```
+
+- PIVOT 행을 컬럼으로 출력
+출력 시, 'CLERK'처럼 출력되는 것을 막기 위해서는 'CLERK' AS "CLERK"로 하면 CLERK로 출력된다.
+
+- UNPIVOT 열을 행으로 출력
+NULL값은 포함하지 않는다.
+- UNPIVOT INCLUDE NULLS를 사용하면 NULL값도 결과에 포함
+    
+    
+- SUM OVER 누적데이터 출력
+
+- ROLLUP 집계 결과 출력
+
+- CUBE 집계 결과를 위쪽에 출력
+
+- 출력되는 행 제한하기
+처음에서 4번째 까지 출력
+
+```sql
+ORDER BY SAL DESC FETCH FIRST 4 ROWS ONLY;
+```
+
+20%에 해당하는 결과 출력
+
+```sql
+ORDER BY SAL DESC FETCH FIRST 20 PERCENT ROWS ONLY;
+FETCH FIRST N ROWS ONLY
+```
+
+동일한 값이 2개인 값이 출력
+
+```sql
+ORDER BY SAL DESC FETCH FIRST 2 ROWS WITH TIES;
+```
+
+WITH TIES
+
+10번째 행부터 끝까지 결과를 출력
+
+```sql
+ORDER BY SAL DESC OFFSET 9 ROWS;
+```
+
+OFFSET 출력이 시직되는 행의 위치를 지정
+
+출력된 5개의 행 중에서 2개의 행만 출력
+
+```sql
+ORDER BY SAL DESC OFFSET 9 ROWS
+FETCH FIRST 2 ROWS ONLY;
+```
+
+- EQUL JOIN / INTERSECT / INNER JOIN
+교집합
+- MINUS / LEFT OUTER JOIN
+
+- EXISTS 존재하는지 확인
+처음부터 검색 존재하면 그 이후는 확인하지 않는다.
+- NOT EXISTS 존재하지 않는 데이터를 검색
+
+- RPAD 계층 순서로 결과를 출력
+
+```sql
+SELECT RPAD('', LEVEL*3) || ENAME FROM EMP
+START WITH ENAME = 'KING'
+CONNECT BY PRIOR EMPNO = MGR
+ORDER BY SIBLINGS BY SAL DESC;
+```
+
+START WITH 최상이 노드의 데이터를 지정
+CONNECT BY 부모 노드와 자식 노드들 간의 관계
+
+CONNECT BY PRIOR 자식 컬럼 = 부모 컬럼 : 부모 → 자식 순방향 전개
+CONNECT BY PRIOR 부모 컬럼 = 자식 컬럼 : 자식 → 부모 역방향 전개
+
+SIBLINGS 계층형 질의문의 서열 순서를 깨트리지 않으면서 출력
+
+- SYS_CONNECT_BY 서열 순서를 가로로 출력
+
+- GLOBAL TEMPORARY 임시 테이블 생성, 데이터를 영구히 저장하지 않는다.
+ON COMMIT DELETE ROWS - COMMIT 할 때까지만 데이터를 보관
+ON COMMIT PRESERVE ROWS - 세션이 종료될 때까지만 데이터를 보관
+
+- AS OF TIMESTAMP
+
+```sql
+AS OF TIMESTAMP(SYSTIMESTAMP - INTERVAL '5' MINUTE)
+```
+
+- 현재 시간에서 5분을 뺀 시간을 표시
+    
+    
+    → 5분 전의 데이터 확인이 가능하다.
+    
+    ```sql
+    SELECT * FROM EMP
+    AS OF TIMESTAMP (SYSTIMESTAMP - INTERVAL '5' MINUTE)
+    WHERE ENAME = 'KING';
+    ```
+    
+    테이블을 플래쉬백할 수 있는 골든 타입은 기본 15분
+    
+- WITH ~ AS
+
+```sql
+WITH JOB_SUMSAL AS ( SELECT JOB, SUM(SAL) AS SAL FRO EMP GROUP BY JOB) -- 1 실행
+-- 2 실행
+SELECT JOB, SAL	-- ③ 실행
+FROM JOB_SUMSAL	-- ① 실행
+WHERE SAL > ( SELECT AVG(SAL) FROM JOB_SUMSAL)	-- ② 실행
+```
+
+WITH ~ AS를 통해 임시 테이블을 생성 후 작업한다.
+
+임시저장 여역에 임시테이블을 생성하여 참조(SUBQUERY FACTORING)
+
+```sql
+WITH JOB_SUMSAL AS ( SELECT JOB, SUM(SAL) AS SAL FRO EMP GROUP BY JOB )
+, DEPTNO_SUMSAL AS ( SELECT DEPTNO, SUM(SAL) AS SAL FROM EMP GROUP BY DEPT NO
+HAVING SUM(SAL) > (SELECT AVG(SAL) +3000 FROM JOB_SUMSAL ) )
+SELECT DEPTNO, SAL
+FROM DEPTNO_SUMSAL;
+```
+
+- Script 구조
+1. 선언부 : 사용할 변수, 상수 선언, 초기화
+2. 실행부 : 실제 처리할 Query부분이나 제어문등을 활용. 실제처리
+3. 예외처리부 : 각종 오류 처리
+
+→ 기본구조
+
+```sql
+DECLARE -- 선언부(변수, 상수 ..)
+message VARCHAR2(10); -- 변수선언
+BEGIN -- 실행부
+message := 'hello PL'; -- := 할당 연산자
+dbms_output.put_line('message = ' || message);
+-- 예외처리
+END; -- PL/SQL 블록을 종료
+/ -- PL/SQL문 종료
+```
+
+→ if
+DECLARE
+counter INTEGER;
+BEGIN
+counter := 1;
+counter := counter + 1;
+
+-- 조건문은 되도록 대문자로 쓰기
+
+```sql
+IF counter IS NULL THEN
+    dbms_output.put_line('RESULT : counter is null');
+--ELSIF
+ELSE
+    dbms_output.put_line('RESULT : counter is not null');
+END IF;
+END;
+/
+```
+
+→ FOR
+
+```sql
+DECLARE
+counter INTEGER;
+i INTEGER;     -- loop형 변수를 미리 선언해줘야 한다.
+BEGIN
+FOR i IN 1..9 LOOP
+DBMS_OUTPUT.PUT_LINE('i = ' || i);
+counter := i * 2;
+DBMS_OUTPUT.PUT_LINE('2 * ' || i || ' = ' || counter);
+END LOOP;
+END;
+/
+```
+
+→ LOOP문
+
+```sql
+DECLARE
+v_count NUMBER := 0; --NUMBER(5,2)소수점 2번째자리까지
+v_total NUMBER := 0; --초기화까지 들어간것임
+BEGIN
+LOOP
+    EXIT WHEN v_count = 10; --V_COUNT가 10이였을때 탈출해라 이곳에는 : 없음
+
+    v_count := v_count +1;
+    v_total := v_total+v_count;
+    DBMS_OUTPUT.PUT_LINE('v_count =' || v_count);
+END LOOP;
+
+DBMS_OUTPUT.PUT_LINE('v_total =' || v_total);
+END;
+/
+```
+
+→ while
+
+```sql
+DECLARE
+v_count NUMBER := 0;
+v_total NUMBER := 0;
+BEGIN
+WHILE v_count <10
+LOOP
+v_count := v_count +1;
+v_total := v_total+v_count;
+END LOOP
+DBMS_OUTPUT.PUT_LINE('v_total =' || v_total);
+END;
+/
+```
+
+→ 예외 처리부 Exception
+
+```sql
+DECLARE
+counter INTEGER;
+BEGIN
+counter := 10;
+counter := counter /0;
+EXCEPTION WHEN OTHERS THEN --예외처리부
+DBMS_OUTPUT.PUT_LINE('예외가 발생 했습니다');
+END;
+/
+```
+
+→ ROWTYPE -> 변수를 묶음으로 가져올 수 있는 것

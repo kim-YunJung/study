@@ -1,0 +1,56 @@
+control + c
+ctrl + c 
+#서버 종료
+
+# --- #
+
+node -v
+#node 버전 확인
+
+node
+#node 실행
+
+# --- #
+
+npm init
+#설치 시, entry point: (index.js) 
+#원하는 경로를 써준다. 예) server.js
+
+npm init -y
+#npm 모듈을 설치
+
+# --- #
+
+npm i express, mongoose, cors dotenv http
+#필요한 라이브러리 설치
+
+설치가 되지 않을 경우 하나씩 쳐준다. 
+npm i express
+
+npm i socket.io
+
+npm install nodemon
+#npm install nodemon -g
+#npm install -g nodemon
+#npm install nodemon --save-dev
+
+#yarn add global nodemon
+#파일의 변화가 생겼을 때 알아서 재실행해준다.
+
+yarn add ejs
+
+yarn add body-parser
+
+# --- #
+
+nodemon app.js
+#파일을 실행시켜준다.
+
+# --- #
+
+npm i -s mysql
+
+npm i -s dotenv
+
+#로그
+npm i -s morgan

@@ -1,0 +1,15 @@
+
+https://www.notion.so/mysql-41e54aa1e10d4752b41cfdea771ad1be?pvs=4
+
+
+create database board;—데이터 베이스 목록 생성
+
+create user 'yuni'@'localhost' identified by 'root!!Root';
+
+select `user` from `mysql`.`user`;--계정생성
+
+show grants for 'yuni'@'localhost';--권한확인
+
+grant all on `board`.* to 'yuni'@'localhost' with grant option;--board테이블에 한해 모든 권한 부여
+
+flush privileges;--권한이 반영이 되지 않을 경우 넣어준다.

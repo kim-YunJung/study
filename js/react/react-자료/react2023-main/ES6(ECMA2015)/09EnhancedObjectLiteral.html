@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>향상된 객체 리터럴(Enhanced Object Literal)</h2>
+    <script>
+    /*
+    기존 자바스크립트에서 사용하던 객체 정의 방식을 개선한 문법
+    */
+    //기존방식
+    let obj1 = {        
+        language: 'javascript',
+        coding: function() {
+            console.log('Hello World');
+        }
+    };
+    console.log(obj1.language);
+    obj1.coding();
+
+    //축약 문법 1 - 속성과 값이 같으면 1개만 기입할 수 있다. 
+    var language = 'javascript';
+
+    let obj2 = {
+        // language: language,
+        language
+    };
+    console.log(obj2);
+
+    //축약 문법 2 - 속성에 함수를 정의할 때 function 예약어 생략
+    const obj3 = {
+        // 기존방식
+        coding: function() {
+            console.log('Hello coding');
+        },
+        //축약문법
+        homework() {
+            console.log('Hello homework');
+        }
+    };
+    obj3.coding();  
+    obj3.homework();  
+    </script>
+</body>
+</html>

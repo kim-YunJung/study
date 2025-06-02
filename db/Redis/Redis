@@ -1,0 +1,71 @@
+[Redis]
+https://redis.io/
+http://redisgate.kr/redisgate/ent/ent_intro.php
+
+- Redis를 docker기반으로 설치
+https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/
+
+[Install Redis Stack]
+docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+
+[Run Redis-CLI 접속]
+docker exec -it redis-stack redis-cli
+
+	- 키 값으로 내용을 저장한다.
+	- 예) SET Key Value
+	
+	[SET에 대한 예]
+	https://redis.io/docs/latest/commands/set/
+	[Data-Type]
+	https://redis.io/docs/latest/develop/data-types/
+
+	- 값을 가져올때, GET을 사용
+	- 예) GET Key
+	[GET에 대한 예]
+	https://redis.io/docs/latest/commands/get/
+
+[URL]
+localhost:8001
+	- Gui형식으로 내용을 볼 수 있다.
+
+[--- 기본 명령어 ---]
+	- String 
+		레디스의 기본
+		글자, 숫자도 저장 가능
+
+		사용 예) 캐싱을 위해 자주 변하지 않는 응답 정보(업체정보, 공지사항 등)
+			   를 저장 시켜서, 사용	
+
+			   여러 사람이 자주 사용하는 공지사항과 같은 내용을 
+			   데이터를 한 번 조회 후 레디스에 올려 레디스에서 응답할 수 있도록 한다.
+			   (응답 속도를 빠르게 한다.)
+
+		-> SET / GET - 데이터를 하나만 저장
+		-> MSET / MGET - 데이터를 여러개를 저장
+
+	- Hash
+		JSON과 같은 키 - 값 쌍으로 여러개를 저장
+
+		-> HSET 
+		-> HMSET / HMGET
+		-> HGETALL - 모든 내용을 가져온다.
+
+	- List
+		Linked List 방식
+		큐 용도로 사용한다.
+		예) 최근 3개 게시물만 남기기
+
+	- Set
+		String의 집합, 중복되지 않는 데이터만 저장
+		순서가 없다.
+		집합 연산도 가능
+
+		예) 유니크한 값 관리 - 방문자 목록, 접속 ip목록 ...
+			게시물의 태그, 제품 카테고리
+
+	- Sorted Set
+		Set와 유사, score 기반 순서가 있음
+
+		예) 실시간 랭킹, 방문자, 접속 ip ...
+
+	
