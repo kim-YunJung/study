@@ -1,0 +1,35 @@
+https://github.com/revfactory/claude-code-mastering
+https://revfactory.github.io/claude-code-mastering/
+Claude Code 마스터하기
+
+-> 대화형 모드 vs 명령 모드
+명령 모드 (일회성 작업)
+claude "package.json 파일을 읽고 요약해줘"
+
+대화형 모드 (지속적인 작업)
+명령 모드는 단발성 작업에 적합하지만, 복잡한 프로젝트나 여러 단계를 거쳐야 하는 작업에는 대화형 모드가 더 효율적입니다.
+
+# 대화형 모드 시작
+claude
+
+# 이제 지속적으로 대화 가능
+> 새로운 React 프로젝트를 시작하고 싶어
+> TypeScript를 사용하고, 테스트 환경도 설정해줘
+> Material-UI도 추가해줘
+
+-> 권한 유형별 설명
+보안과 편의성의 균형을 위한 권한 설정 전략
+
+# 모든 권한 부여 (개발 환경)
+claude --allow-all
+
+# 읽기 전용 모드 (코드 리뷰용)
+claude --read-only
+
+# 특정 권한만 부여
+claude --allow-read --allow-write --deny-execute
+
+-> CLAUDE.md
+CLAUDE.md는 프로젝트 루트 디렉토리에 위치하는 특별한 마크다운 파일입니다. 
+이 파일은 Claude Code에게 프로젝트별 지침과 규칙을 제공하여, 보다 정확하고 일관된 결과를 도출할 수 있게 합니다.
+

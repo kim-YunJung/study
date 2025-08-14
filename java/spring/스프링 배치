@@ -1,0 +1,62 @@
+- Spring Batch 
+
+> Application
+개발자가 개발하는 배치 처리에 사용되는 코드나 컴포넌트가 이 레이어에 포함되는데요.
+다시 말해, 업무 로직이나 서비스, 혹은 잡 구조화와 관련된 내용이 Application 레이어에 포함됩니다.
+ 
+> Core
+배치 Core 에는 배치 작업을 시작하고 제어하는 데 필요한 핵심 클래스가 포함됩니다. 
+Job, Step, JobLauncher, JobParameters 구현체가 포함됩니다.
+
+> Infrastructure
+어떤 처리를 수행하려면 파일, 데이터베이스 등으로 부터 읽고 쓸 수 있어야 하겠죠. 
+또, 잡 수행에 실패한 이후 재시도 될 때 어떤 일을 수행할지를 다룰 수 있어야 합니다.
+ 
+예를 들어 개발자가 사용할 수 있는 ItemReader and ItemWriter와 같은 Reader나 Writer가 포함되어 있으며,
+코어에서 사용할 수 있는 기본 Reader나 Writer와 RetryTemplate과 같은 서비스가 포함됩니다. 
+
+>> Job
+하나 이상의 Step들을 단계 별로 구성한 하나의 배치 작업을 의미합니다.
+
+- JobInstance
+Job Parameter으로 구분되는 Job의 인스턴스로, 논리적인 Job의 실행을 의미합니다.
+참고로, Parameter에는 특정 날짜가 포함될 수 있습니다.
+JobExecution들의 모음입니다.
+  
+- JobExecution
+하나의 Job의 실행 시도를 의미합니다.
+여기서 '시도' 한다는 의미는 해당 Job의 실행이 진행 중일수도, 성공할 수도, 실패하는 상태를 모두 포함하기 때문입니다.
+Spring Batch에서 Job의 상태는 두가지가 있습니다.
+
+>> BatchStatus
+BatchStatus.STARTED : 실행중
+BatchStatus.FAILED : 실패
+BatchStatus.COMPLETED : 성공적으로 종료
+
+>> ExitStatus
+실행의 결과를 의미합니다.
+ 
+UNKNOWN : 알수없음 상태. 더 이상 진행 불가
+EXECUTING : 실행중(이므로 추가 작업이 더 이상 필요없음) 상태. 
+비동기 실행 시 다른 스레드나 프로세스가 처리중이고 결과를 기다릴 필요가 없을 때 사용
+COMPLETED : 프로세스 종료 상태
+NOOP :  처리되지 않은 작업을 나타내는 상태. (e.g. 이미 실행이 완료된 상태)
+FAILED : 에러와 같이 프로세스가 종료된 상태
+STOPPED : 중단(interruped) 상태로 프로세스가 종료된 상태
+
+>> Step
+하나의 Job에서 실행되는 독립적이고 순차적인 하나의 작업 단위입니다.
+데이터를 데이터베이스에 저장하는 간단한 단계일 수도, 혹은 굉장히 복잡한 단계일 수도 있습니다.
+
+> ExecutionContext
+ExecutionContext는 StepExecution 또는 JobExecution의 실행 범위에서 상태를 저장하기 위해 프레임워크에 의해 유지하고 관리하는 키/값 쌍의 컬렉션입니다. 
+ 
+> JobRepository
+배치 도메인 모델 및 관련 상태를 유지하기 위한 영구 저장소로 주로 데이터베이스를 사용합니다.
+Job Repository는 위에서 담은 Stereotypes에서 보이듯이, 전반적으로 사용되는 저장소입니다.
+ 
+주로 배치 수행과 관련된 시작 시간, 종료 시간, 상태, 읽기/쓰기 횟수 등을 저장하여 대부분의 주요 컴포넌트에서 사용됩니다.
+처음 Job Launcher, Job 및 Step을 인스턴스로 제작할 때 사용되는 필요한 데이터를 CRUD 형태로 제공합니다.
+
+출처: https://gngsn.tistory.com/177 [ENFJ.dev:티스토리]
+https://www.toptal.com/spring/spring-batch-tutorial
